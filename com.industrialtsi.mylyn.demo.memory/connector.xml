@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*******************************************************************************
+* Copyright (c) 2008 Industrial TSI and Maarten Meijer.
+* All rights reserved. This program and the accompanying materials 
+* are made available under the terms of the Eclipse Public License v1.0 
+* which	accompanies this distribution, and is available at
+* http://www.eclipse.org/legal/epl-v10.html 
+* 
+* Contributors:
+* Industrial TSI - initial API and implementation
+*
+*******************************************************************************/
+* Author: Ahmed Aadel
+-->		
+	
+
+<connector	xmlns="http://www.industrial-tsi.com/mylyn/connector/connector_1_0.dtd">
+		<!--
+		The "repository" element represents one repository. The attribute "name"
+		is mandatory, it's strongly advised to use different names when many
+		repositories are defined in the same connector.xml file. A repository
+		is internally identified by its "name" attribute.
+	-->
+	<repository name="Memory">
+		<persistor name="Memory">
+		<!--
+				The fully-qualified name of the class implementing
+				"org.eclipse.mylyn.sql.core.persistence.IPersistor" interface. It is
+				a hand-shake between this connector and client's persistence handling
+				API. To make this class available to the connector, an extension
+				from "com.industrialtsi.mylyn.core.persistor" extension point
+				is required.
+			-->
+			<class>com.industrialtsi.mylyn.memory.MemoryPersistor</class>
+		</persistor>
+		<repository-properties>
+		<!-- You can enable some repository functions.
+		 You may be willing to configure only what you need and let the rest to their default value, which is false.(means disabled)-->
+			<property name="can-create-new-task" value="true" />
+			<property name="can-create-task-from-key" value="true" />
+			<property name="can-query-repository" value="true" />
+			<property name="can-synchronize-tasks" value="true" />
+			<property name="can-get-attachments" value="true" />
+			<property name="can-post-attachments" value="true" />
+		</repository-properties>
+		<task>
+		<!--
+		 You can disable a task attribute shown on the editor by setting its read-only value to true.
+		 You may be willing to configure only what you need and let the rest to their default value, which is false.
+		-->
+		<task-attributes>
+	 <!--   <attribute id="task.common.summary" readonly="true" />
+		 	<attribute id="task.common.product" readonly="true" />
+			<attribute id="task.common.status" readonly="true" />
+			<attribute id="task.common.user.assigned" readonly="true" />
+			<attribute id="task.common.date.due" readonly="true" />
+			<attribute id="task.common.date.created" readonly="true" />
+			<attribute id="task.common.date.modified" readonly="true" />
+		 	<attribute id="task.common.priority" readonly="true"/>								
+			<attribute id="task.common.description" readonly="true" />
+			<attribute id="task.common.reporter" readonly="true" /> -->
+			</task-attributes>
+		</task>
+	</repository>
+</connector>
