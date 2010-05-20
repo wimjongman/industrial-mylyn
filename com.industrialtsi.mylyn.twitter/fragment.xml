@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<fragment>
+   <extension
+         point="com.industrialtsi.mylyn.core.persistor">
+      <persistor-config
+            id="com.industrialtsi.mylyn.twitter.persistor-config"
+            jdbc-url-re="http://twitter\.com/.*"
+            jdbc-url-template="http://twitter.com/name"
+            name="IndustrialTwitter"
+            persistor="com.industrialtsi.mylyn.twitter.persistor.TwitterPersistor">
+         <repository-attributes
+               can-create-new-task="false"
+               can-create-task-from-key="true"
+               can-delete-attachments="false"
+               can-delete-comments="false"
+               can-delete-tasks="false"
+               can-get-attachments="false"
+               can-initialize-schema="false"
+               can-post-attachments="false"
+               can-query-repository="true"
+               can-synchronize-tasks="false">
+         </repository-attributes>
+         <task-attributes
+               task.common.date.created="readonly"
+               task.common.date.due="readonly"
+               task.common.date.modified="readonly"
+               task.common.description="readonly"
+               task.common.priority="readonly"
+               task.common.product="readonly"
+               task.common.reporter="readonly"
+               task.common.status="readonly"
+               task.common.summary="readonly"
+               task.common.user.assigned="readonly">
+         </task-attributes>
+      </persistor-config>
+   </extension>
+
+</fragment>
