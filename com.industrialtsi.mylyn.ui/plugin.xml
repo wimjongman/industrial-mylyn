@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.mylyn.tasks.ui.repositories">
+      <connectorCore
+            class="com.industrialtsi.mylyn.core.IndustrialRepositoryConnector"
+            id="com.industrialtsi.mylyn.core.IndustrialRepositoryConnector"
+            name="Industrial  Connector">
+      </connectorCore>
+      <connectorUi
+            brandingIcon="icons/industrial-tsi.ico"
+            class="com.industrialtsi.mylyn.ui.IndustrialConnectorUI"
+            id="com.industrialtsi.mylyn.ui.IndustrialConnectorUI"
+            name="Industrial  Connector UI"
+            overlayIcon="icons/industrial_overlay.GIF">
+      </connectorUi>
+   </extension>
+   <extension
+         point="org.eclipse.mylyn.tasks.core.templates">
+      <repository
+            addAutomatically="false"
+            anonymous="false"
+            label="com.industrialtsi.mylyn.ui.jdbc"
+            repositoryKind="industrial"
+            urlRepository="jdbc://driver/database/table"
+            version="1.0">
+      </repository>
+   </extension>
+   <extension
+         point="org.eclipse.mylyn.tasks.ui.editors">
+      <pageFactory
+            class="com.industrialtsi.mylyn.ui.editors.IndustrialTaskEditorPageFactory"
+            id="com.industrialtsi.mylyn.ui.editors.IndustrialTaskEditorPageFactory">
+      </pageFactory>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="org.eclipse.mylyn.tasks.ui.category.editor"
+            id="com.industrialtsi.mylyn.ui.commands.openLocalCopyInBrowser"
+            name="Make Local Copy and Open in Browser">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.industrialtsi.mylyn.ui.commands.OpenTaskAttachmentLocalCopy"
+            commandId="com.industrialtsi.mylyn.ui.commands.openLocalCopyInBrowser">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.mylyn.tasks.ui.editor.menu.attachments?after=group.open">
+         <command
+               commandId="com.industrialtsi.mylyn.ui.commands.openLocalCopyInBrowser"
+               label="Make Local Copy and Open in Browser"
+               mnemonic="O"
+               style="push">
+         </command>
+        </menuContribution>
+   </extension>
+
+</plugin>
