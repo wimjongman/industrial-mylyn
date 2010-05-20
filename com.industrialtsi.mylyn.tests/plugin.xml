@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.industrialtsi.mylyn.core.persistor">
+      <persistor-config
+            id="com.industrialtsi.mylyn.tests.persistor-config1"
+            name="JUnit Repository"
+            persistor="com.industrialtsi.mylyn.core.persistence.IbatisPersistor">
+         <repository-attributes
+               can-create-new-task="true"
+               can-create-task-from-key="true"
+               can-delete-attachments="true"
+               can-delete-comments="true"
+               can-delete-tasks="true"
+               can-get-attachments="true"
+               can-initialize-schema="true"
+               can-post-attachments="true"
+               can-query-repository="true"
+               can-synchronize-tasks="true">
+         </repository-attributes>
+         <task-attributes
+               task.common.date.created="readwrite"
+               task.common.date.due="readwrite"
+               task.common.date.modified="readwrite"
+               task.common.description="readwrite"
+               task.common.priority="readwrite"
+               task.common.product="readwrite"
+               task.common.reporter="readwrite"
+               task.common.status="readwrite"
+               task.common.summary="readwrite"
+               task.common.user.assigned="readwrite">
+         </task-attributes>
+         <ibatis-config
+               driver="com.industrialtsi.mylyn.tests.Ibatis-config1"
+               maps="com.industrialtsi.mylyn.tests.ibatis-config1"
+               name="name">
+         </ibatis-config>
+      </persistor-config>
+   </extension>
+
+</plugin>
