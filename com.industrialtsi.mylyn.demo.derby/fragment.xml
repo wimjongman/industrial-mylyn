@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<fragment>
+   <extension
+         id="demo.derby.ibatis"
+         name="Demo Derby using ibatis"
+         point="com.industrialtsi.mylyn.core.persistor">
+      <persistor-config
+            id="demo.derby"
+            jdbc-url-re="^jdbc:derby:[/:a-zA-Z0-9\\.]*(|:\\d+)*[/a-zA-Z0-9].*$"
+            jdbc-url-template="jdbc:derby:/path/to/database"
+            name="Demo Derby (ibatis)"
+            persistor="com.industrialtsi.mylyn.core.persistence.IbatisPersistor">
+         <repository-attributes
+               can-create-new-task="true"
+               can-create-task-from-key="true"
+               can-delete-attachments="false"
+               can-delete-comments="false"
+               can-delete-tasks="false"
+               can-get-attachments="true"
+               can-initialize-schema="false"
+               can-post-attachments="true"
+               can-query-repository="true"
+               can-synchronize-tasks="true">
+         </repository-attributes>
+         <task-attributes
+               task.common.product="readwrite"
+               task.common.date.created="readonly"
+               task.common.date.due="readwrite"
+               task.common.date.modified="readonly"
+               task.common.description="readwrite"
+               task.common.priority="readwrite"
+               task.common.reporter="readonly"
+               task.common.status="readwrite"
+               task.common.summary="readwrite"
+               task.common.user.assigned="readwrite">
+         </task-attributes>
+         <ibatis-config
+               driver="org.apache.derby.jdbc.EmbeddedDriver"
+               maps="maps/derby_local_demo/SqlMapConfig.xml"
+               name="Local Demo Non-Shared">
+         </ibatis-config>
+         <ibatis-config
+               driver="org.apache.derby.jdbc.ClientDriver"
+               maps="maps/derby_network_demo/SqlMapConfig.xml"
+               name="Derby Demo Shared Instance  ">
+         </ibatis-config>
+       </persistor-config>
+   </extension>
+</fragment>

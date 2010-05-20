@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Comments">
+    <!--
+        Keys for TaskComment attributes used by Mylyn in the RepositoryTaskData structure
+
+        COMMENT_NEW = "task.common.comment.new";
+        COMMENT_TEXT = "task.common.comment.text";
+        COMMENT_DATE = "task.common.comment.date";
+        COMMENT_AUTHOR = "task.common.comment.author";
+        COMMENT_AUTHOR_NAME = "task.common.comment.author.name";
+
+        DESCRIPTION = "task.common.description";
+
+        TASK_KEY = "task.common.key";
+
+        Keys for RepositoryAttachment attributes used by Mylyn in the RepositoryTaskData structure
+
+        ATTACHMENT_ID = "task.common.attachment.id";
+        ATTACHMENT_TYPE = "task.common.attachment.type";
+        ATTACHMENT_CTYPE = "task.common.attachment.ctype";
+        ATTACHMENT_DATE = "task.common.attachment.date";
+        ATTACHMENT_URL = "task.common.attachment.url";
+        ATTACHMENT_FILENAME = "filename";
+        ATTACHMENT_SIZE = "task.common.attachment.size";
+    -->
+    <!--
+        groupKey use : when you want Mylyn to concatenate strings in different
+        records into one comment you can force that to happen by giving these
+        strings the same groupKey.
+
+        Leaving the the groupKey set to null, will concatenate all records into
+        one Mylyn comment. THis is counterintuitive!!
+
+
+    -->
+
+    <select id="getForKey"  resultClass="ibatisComment">
+        SELECT
+        cmt_date as groupKey,
+        cmt_bug_id as taskId,
+        cmt_text as text,
+        cmt_author as author,
+        cmt_author_name as author_name,
+        cmt_date as date
+        FROM tasks.comments WHERE cmt_bug_id = #value#
+
+     </select>
+
+    <insert id="addComment" parameterClass="ibatisComment">
+        INSERT INTO tasks.comments (
+        cmt_bug_id,
+        cmt_text,
+        cmt_author,
+        cmt_author_name,
+        cmt_desc
+        )
+        VALUES (
+        #taskId#,
+        #text#,
+        #author#,
+        #authorName#,
+        #description#
+        )
+     </insert>
+
+    <select id="getAttachmentForKey"  resultClass="ibatisAttachment">
+        <!-- meta data only, return the blob data separately -->
+        SELECT
+        att_id as id,
+        att_desc as description,
+        att_ctype as ctype,
+        att_date as date,
+        att_url as url,
+        att_filename as filename,
+        att_size as size,
+        att_task as taskId,
+        att_name as author
+        FROM  tasks.attachments WHERE att_task = #value#
+    </select>
+
+
+    <resultMap id="attachmentDataMap" class="ibatisAttachment">
+        <result property="blob" column="att_blob" jdbcType="BLOB" javaType="[B"/>
+    </resultMap>
+
+    <select id="getAttachmentDataForKey" resultMap="attachmentDataMap">
+        <!-- return the blob data -->
+        SELECT
+        att_blob
+        FROM tasks.attachments WHERE att_id = #value:INTEGER#
+    </select>
+
+    <insert id="addAttachment"  parameterClass="ibatisAttachment">
+        INSERT INTO  tasks.attachments (
+        att_desc,
+        att_ctype,
+        att_date,
+        att_url,
+        att_filename,
+        att_size,
+        att_task,
+        att_blob,
+        att_name
+        ) VALUES (
+        #description#,
+        #ctype#,
+        #date:DATETIME#,
+        #url#,
+        #filename#,
+        #size:INTEGER#,
+        #taskId#,
+        #blob:BLOB#,
+        #author#
+        )
+        <selectKey>
+            SELECT max(att_id) FROM tasks.attachments
+        </selectKey>
+    </insert>
+
+</sqlMap>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Repository">
+    <sql id="repository">tasks.issues</sql>
+    <!--
+Legal issue owners and other legal values for fields are taken here
+from DISTINCT values in the database. An alternative would be a
+SELECT from any table containing legal users.
+    -->
+    <!-- return a list of legal issue owners. -->
+<select id="legalOwners" resultClass="string">SELECT DISTINCT bug_owner FROM <include refid="repository"/> ORDER BY bug_owner</select>
+    <!-- return a list of legal products. -->
+    <select id="legalProducts" resultClass="string">SELECT DISTINCT product FROM tasks.products ORDER BY product</select>
+    <!-- return a list of legal issue status values. -->
+    <select id="legalIssueStatus" resultClass="string">SELECT DISTINCT status FROM tasks.status ORDER BY sort</select>
+    <!-- return a legal list of priority values.
+Note that in Mylyn these all need to be mapped to one of
+"P1", "P2", "P3", "P4" or "P5". -->
+    <select id="legalPriority" resultClass="string">SELECT DISTINCT priority FROM tasks.priority ORDER BY priority</select>
+<!-- this query will be executed when pressing the Validate Connection in
+    the Repository Settings dialog -->
+<statement id="validate" resultClass="integer">
+    SELECT COUNT(*) - 3 FROM SYS.SYSTABLES WHERE (TABLENAME = 'ISSUES' OR TABLENAME = 'COMMENTS' OR TABLENAME= 'ATTACHMENTS')
+</statement>
+    <!-- this query will be executed when pressing the Validate Connection in
+        the Repository Settings dialog -->
+    <statement id="authenticate" resultClass="boolean">
+        SELECT TRUE
+    </statement>
+    <!-- This query will be executed when validation fails and the repository
+    can be initialized or updated based on version (like local Derby) -->
+<statement id="initialize" resultClass="string" parameterClass="string">
+    $value$
+</statement>
+</sqlMap>

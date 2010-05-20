@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sqlMapConfig
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+
+    <!--
+    <properties resource="derby_local_demo/db.properties"/>
+    -->
+    <!-- These settings control SqlMap configuration details, primarily to do with transaction
+            management. They are all optional (see the Developer Guide for more). -->
+    <settings cacheModelsEnabled="true" enhancementEnabled="false"
+        lazyLoadingEnabled="false" maxRequests="32" maxSessions="10"
+        maxTransactions="5" useStatementNamespaces="true"/>
+    <!-- Type aliases allow you to use a shorter name for long fully qualified class names. -->
+
+    <typeAlias alias="ibatisTask" type="com.industrialtsi.mylyn.core.dto.IndustrialTask"/>
+    <typeAlias alias="ibatisCriteria" type="com.industrialtsi.mylyn.core.dto.IndustrialQueryParams"/>
+    <typeAlias alias="ibatisComment" type="com.industrialtsi.mylyn.core.dto.IndustrialComment"/>
+    <typeAlias alias="ibatisAttachment" type="com.industrialtsi.mylyn.core.dto.IndustrialAttachment"/>
+    <!-- Configure a datasource to use with this SQL Map using SimpleDataSource.
+            Notice the use of the properties from the above resource -->
+
+    <transactionManager type="JDBC">
+        <dataSource type="SIMPLE">
+            <property name="JDBC.Driver" value="${driver}"/>
+            <property name="JDBC.ConnectionURL" value="${url}"/>
+            <property name="JDBC.Username" value="${user}"/>
+            <property name="JDBC.Password" value="${password}"/>
+            <property value="15" name="Pool.MaximumActiveConnections"/>
+            <property value="15" name="Pool.MaximumIdleConnections"/>
+            <property value="1000" name="Pool.MaximumWait"/>
+        </dataSource>
+    </transactionManager>
+    <!-- use the url syntax of the task maps to locate the sql Map absolutely. -->
+    <!-- use the resource syntax to locate in the class tree using class loader -->
+
+    <sqlMap resource="derby_network_demo/TaskMapDerby.xml"/>
+    <sqlMap resource="derby_network_demo/RepositoryMapDerby.xml"/>
+    <sqlMap resource="derby_network_demo/CommentsMapDerby.xml"/>
+
+</sqlMapConfig>

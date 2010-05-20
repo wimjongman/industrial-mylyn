@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     30 mrt 2009 23:27:44                                                        
+
+     Industrial SQL Connector    
+     Creating a local Derby database for testing Mylyn
+                   
+     maarten                                                                
+     ====================================================================== -->
+<project name="Industrial SQL Connector" default="create">
+    <description>
+            Creating a local Derby database for testing Mylyn
+    </description>
+
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: depends                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="init">
+		<property environment="env" />
+		<property file="../maps/derby_local_demo/db.properties"/>
+		<property name="sqlDir" value="../DB_setup" />
+    	
+		<property name="db.url" value="jdbc:derby:${env.HOME}/tasksDB;create=true" />
+		<property name="db.path" value="../lib/derby.jar:${java.library.path}" />
+    </target>
+
+    <!-- ================================= 
+          target: create              
+         ================================= -->
+    <target name="create" depends="init" description="Creating a local Derby database for testing Mylyn">
+    	<echo message="CLASSPATH: ${db.path}"/>
+		<sql classpath="${db.path}" driver="${driver}" password="${password}" url="${db.url}" userid="${user}" src="${sqlDir}/mylyn_derby.sql" onerror="continue"/>
+    	<echo>Configure your Industrial Connector using the following settings:
+	URL: ${db.url}
+	User name: ${user}
+	Password: ${password}
+    	</echo>
+    </target>
+
+
+</project>

@@ -1,0 +1,36 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Industrial Connector for Mylyn 3.0.x Demo Derby Fragment
+Bundle-SymbolicName: com.industrialtsi.mylyn.demo.derby;singleton:=true
+Bundle-Version: 0.9.5.v20091008
+Bundle-Vendor: Industrial TSI, Maarten Meijer
+Fragment-Host: com.industrialtsi.mylyn.core;bundle-version="[0.9.1.v20090817,1.0.0)"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ClassPath: lib/derbyclient.jar,
+ lib/derby.jar,
+ maps/,
+ .
+Export-Package: org.apache.derby.authentication,
+ org.apache.derby.catalog;uses:="org.apache.derby.iapi.sql.dictionary,org.apache.derby.vti",
+ org.apache.derby.catalog.types;uses:="org.apache.derby.iapi.services.io,org.apache.derby.catalog,org.apache.derby.iapi.types",
+ org.apache.derby.client,
+ org.apache.derby.client.am,
+ org.apache.derby.client.net,
+ org.apache.derby.database;uses:="org.apache.derby.catalog",
+ org.apache.derby.diag;uses:="org.apache.derby.vti",
+ org.apache.derby.io,
+ org.apache.derby.jdbc;
+  uses:="org.apache.derby.iapi.sql.conn,
+   org.apache.derby.iapi.services.monitor,
+   org.apache.derby.iapi.sql,
+   javax.transaction.xa,
+   org.apache.derby.iapi.store.access.xa,
+   org.apache.derby.impl.jdbc,
+   javax.naming.spi,
+   javax.sql,
+   org.apache.derby.iapi.jdbc,
+   javax.naming,
+   org.apache.derby.iapi.services.context,
+   org.apache.derby.iapi.services.io",
+ org.apache.derby.osgi;uses:="org.osgi.framework",
+ com.industrialtsi.mylyn.core.persistence

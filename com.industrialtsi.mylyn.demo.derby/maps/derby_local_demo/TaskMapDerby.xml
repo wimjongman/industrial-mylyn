@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Tasks">
+    <!-- please not that completed must be set FIRST as it resets the completion date to null -->
+
+    <select id="getForKey" resultClass="ibatisTask">
+        SELECT
+            bug_ID as taskId,
+            bug_owner AS owner,
+            bug_summary AS summary,
+            bug_priority AS priority,
+            bug_status AS issueStatus,
+            bug_product AS product,
+            bug_notes as notes,
+            bug_created AS creationDate,
+            bug_scheduled AS scheduledForDate,
+            bug_closed AS completionDate,
+            bug_due AS dueDate,
+            bug_time_estimated / 60 as estimatedTimeHours
+            FROM tasks.issues WHERE bug_ID=#value#
+    </select>
+
+    <select id="searchForKey" parameterClass="ibatisCriteria" resultClass="string">
+        SELECT DISTINCT bug_ID as taskId FROM tasks.issues
+        <dynamic prepend="WHERE">
+            <isNotEmpty property="owner">
+                <iterate property="owner" conjunction="OR" open="(" close=")" prepend="AND" removeFirstPrepend="true">
+                    bug_owner = #owner[]# </iterate>
+            </isNotEmpty>
+            <isNotEmpty property="product">
+                <iterate property="product" conjunction="OR" open="(" close=")"
+                    prepend="AND" removeFirstPrepend="true">
+                    bug_product = #product[]# </iterate>
+            </isNotEmpty>
+            <isNotEmpty property="issueStatus">
+                <iterate property="issueStatus" conjunction="OR" open="(" close=")"
+                    prepend="AND" removeFirstPrepend="true">
+                    bug_status = #issueStatus[]# </iterate>
+            </isNotEmpty>
+            <isNotEmpty property="priority">
+                <iterate property="priority" conjunction="OR" open="(" close=")"
+                    prepend="AND" removeFirstPrepend="true">
+                    bug_priority = #priority[]#</iterate>
+            </isNotEmpty>
+            <isNotEmpty property="summary" prepend="AND"
+                removeFirstPrepend="true"> bug_summary LIKE '%$summary$%'
+            </isNotEmpty>
+            <isNotEmpty property="creationDateBefore" prepend="AND"
+                removeFirstPrepend="true"> bug_created &lt;= #creationDateBefore#
+            </isNotEmpty>
+            <isNotEmpty property="creationDateAfter" prepend="AND"
+                removeFirstPrepend="true"> bug_created &gt;= #creationDateBefore#
+            </isNotEmpty>
+            <isNotEmpty property="dueDateBefore" prepend="AND"
+                removeFirstPrepend="true"> bug_due &lt;= #dueDateBefore#
+            </isNotEmpty>
+            <isNotEmpty property="dueDateAfter" prepend="AND"
+                removeFirstPrepend="true"> bug_due &gt;= #dueDateBefore#
+            </isNotEmpty>
+            <isNotEmpty property="completionDateBefore" prepend="AND"
+                removeFirstPrepend="true"> bug_closed &lt;= #completionDateBefore#
+            </isNotEmpty>
+            <isNotEmpty property="completionDateAfter" prepend="AND"
+                removeFirstPrepend="true"> bug_closed &gt;= #completionDateBefore#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <!--
+        Keys for TaskData attributes used by Mylyn in the RepositoryTaskData structure
+
+        USER_OWNER = "task_common_user_owner";
+        USER_CC = "task_common_user_cc";
+        USER_REPORTER = "task_common_user_reporter";
+        USER_REPORTER_NAME = "task_common_user_reporter_name";
+
+        DESCRIPTION = "task_common_description";
+
+        ATTACHMENT_ID = "task_common_attachment_id";
+        ATTACHMENT_TYPE = "task_common_attachment_type";
+        ATTACHMENT_CTYPE = "task_common_attachment_ctype";
+        ATTACHMENT_DATE = "task_common_attachment_date";
+        ATTACHMENT_URL = "task_common_attachment_url";
+        ATTACHMENT_FILENAME = "filename";
+        ATTACHMENT_SIZE = "task_common_attachment_size";
+
+        USER_ASSIGNED = "task_common_user_assigned";
+        USER_ASSIGNED_NAME = "task_common_user_assigned_name";
+        RESOLUTION = "task_common_resolution";
+        STATUS = "task_common_status";
+        PRIORITY = "task_common_priority";
+        DATE_MODIFIED = "task_common_date_modified";
+        SUMMARY = "task_common_summary";
+        PRODUCT = "task_common_product";
+        DATE_CREATION = "task_common_date_created";
+        KEYWORDS = "task_common_keywords";
+
+        * Boolean attribute. If true, repository user needs to be added to the cc list.
+        ADD_SELF_CC = "task_common_addselfcc";
+        NEW_CC = "task_common_newcc";
+        REMOVE_CC = "task_common_removecc";
+        TASK_KEY = "task_common_key";
+
+        * String constant used to represent true for boolean attributes_
+        TRUE = "1";
+
+        * String constant used to represent false for boolean attributes_
+        FALSE = "0";
+
+        * @since 2_3
+        COMPONENT = "task_common_component";
+
+        There is a problem in ibatis where dot notation fields returned in a Map are parsed as bean properties.
+    -->
+    <select id="additionalForKey" resultClass="java.util.HashMap">
+        SELECT
+        bug_owner AS task_common_user_reporter
+        FROM tasks.issues
+        WHERE
+        bug_id = #value#
+    </select>
+
+    <insert id="newTask" parameterClass="ibatisTask">
+        INSERT INTO tasks.issues
+            (
+            bug_owner,
+            bug_summary,
+            bug_priority,
+            bug_product,
+            bug_notes,
+            bug_time_estimated
+            ) VALUES (
+            #owner#,
+            #summary#,
+            #priority#,
+            #product#,
+            #notes#,
+            #estimatedTimeHours# * 60
+            )
+        <selectKey
+            resultClass="int">SELECT max(bug_ID) FROM tasks.issues
+        </selectKey>
+    </insert>
+
+    <update id="updateForkey" parameterClass="ibatisTask">
+        UPDATE tasks.issues SET
+        <isNotNull property="owner">
+            bug_owner = #owner#,
+        </isNotNull>
+        <isNotNull property="summary">
+            bug_summary = #summary#,
+        </isNotNull>Empty>
+        <isNotNull property="priority">
+            bug_priority = #priority#,
+        </isNotNull>
+        <isNotNull property="product">
+            bug_product = #product#,
+        </isNotNull>
+        <isNotNull property="issueStatus">
+            bug_status = #issueStatus#,
+        </isNotNull>
+        <isNotNull property="owner">
+            bug_notes = #notes#,
+        </isNotNull>
+        <isNotNull property="creationDate">
+            bug_created = #creationDate#,
+        </isNotNull>
+        <isNotNull property="scheduledForDate">
+            bug_scheduled = #scheduledForDate#,
+        </isNotNull>
+        <isNotNull property="completionDate">
+        bug_closed = #completionDate#,
+        </isNotNull>
+        <isNotNull property="dueDate">
+        bug_due = #dueDate#,
+        </isNotNull>
+        bug_time_estimated = 60 * #estimatedTimeHours#
+        WHERE bug_ID=#taskId#
+    </update>
+</sqlMap>
