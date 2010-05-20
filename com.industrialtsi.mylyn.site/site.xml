@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.apache.ibatis.feature_2.3.0.jar" id="org.apache.ibatis.feature" version="2.3.0">
+      <category name="Industrial Connector dependencies"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.demo.jpa.feature_0.9.1.v20090817.jar" id="com.industrialtsi.mylyn.demo.jpa.feature" version="0.9.1.v20090817">
+      <category name="Example JPA based connector fragment"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.feature_0.9.1.v20090817.jar" id="com.industrialtsi.mylyn.feature" version="0.9.1.v20090817">
+      <category name="Industrial Connector Base"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.demo.derby.feature_0.9.1.v20090817.jar" id="com.industrialtsi.mylyn.demo.derby.feature" version="0.9.1.v20090817">
+      <category name="Example Ibatis based connector fragment"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.dev_3.3.0.jar" id="com.industrialtsi.mylyn.dev" version="3.3.0">
+      <category name="Mylyn Development Tools"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.dev_3.3.0.200909070912.jar" id="com.industrialtsi.mylyn.dev" version="3.3.0.200909070912">
+      <category name="Mylyn Development Tools"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.demo.derby.feature_0.9.3.v20090907.jar" id="com.industrialtsi.mylyn.demo.derby.feature" version="0.9.3.v20090907">
+      <category name="Example Ibatis based connector fragment"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.demo.jpa.feature_0.9.3.v20090907.jar" id="com.industrialtsi.mylyn.demo.jpa.feature" version="0.9.3.v20090907">
+      <category name="Example JPA based connector fragment"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.feature_0.9.3.v20090907.jar" id="com.industrialtsi.mylyn.feature" version="0.9.3.v20090907">
+      <category name="Industrial Connector Base"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.feature_0.9.4.v20090917.jar" id="com.industrialtsi.mylyn.feature" version="0.9.4.v20090917">
+      <category name="Industrial Connector Base"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.demo.jpa.feature_0.9.4.v20090917.jar" id="com.industrialtsi.mylyn.demo.jpa.feature" version="0.9.4.v20090917">
+      <category name="Example JPA based connector fragment"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.demo.derby.feature_0.9.4.v20090917.jar" id="com.industrialtsi.mylyn.demo.derby.feature" version="0.9.4.v20090917">
+      <category name="Example Ibatis based connector fragment"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.demo.jpa.feature_0.9.5.v20091008.jar" id="com.industrialtsi.mylyn.demo.jpa.feature" version="0.9.5.v20091008">
+      <category name="Example JPA based connector fragment"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.demo.derby.feature_0.9.5.v20091008.jar" id="com.industrialtsi.mylyn.demo.derby.feature" version="0.9.5.v20091008">
+      <category name="Example Ibatis based connector fragment"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.feature_0.9.5.v20091008.jar" id="com.industrialtsi.mylyn.feature" version="0.9.5.v20091008">
+      <category name="Industrial Connector Base"/>
+   </feature>
+   <category-def name="Industrial Connector Base" label="Industrial Connector Base">
+      <description>
+         The base industrial conenctor for mylyn, you need to extend with your own fragment to connect to a database.
+      </description>
+   </category-def>
+   <category-def name="Example JPA based connector fragment" label="Example JPA based connector"/>
+   <category-def name="Example Ibatis based connector fragment" label="Example Ibatis based connector"/>
+   <category-def name="Industrial Connector dependencies" label="Industrial Connector dependencies"/>
+   <category-def name="Mylyn Development Tools" label="Mylyn Development Tools">
+      <description>
+         PropertySource and Actions to look inside Mylyn for use when developing a Generic SQL based connector.
+      </description>
+   </category-def>
+</site>
