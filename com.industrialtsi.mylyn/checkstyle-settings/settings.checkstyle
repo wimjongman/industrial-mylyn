@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    This configuration file was written by the eclipse-cs plugin configuration editor
+-->
+<!--
+    Checkstyle-Configuration: Generic SQL Checkstyle
+    Description: none
+-->
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN" "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+<module name="Checker">
+    <property name="severity" value="warning"/>
+    <module name="TreeWalker">
+        <module name="ModifierOrder"/>
+        <module name="CyclomaticComplexity"/>
+        <module name="UnusedImports"/>
+        <module name="Header">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="Industrial TSI and Maarten Meijer"/>
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.customMessage" value="(c) 2008 Industrial TSI and Maarten Meijer"/>
+            <property name="headerFile" value="${workspace_loc}/com.industrialtsi.mylyn/checkstyle-settings/fileheader.txt"/>
+            <property name="ignoreLines" value="9,10,11,12,13"/>
+        </module>
+    </module>
+</module>
