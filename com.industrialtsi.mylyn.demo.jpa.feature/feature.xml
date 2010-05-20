@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.industrialtsi.mylyn.demo.jpa.feature"
+      label="JPA Feature"
+      version="0.9.5.v20091008"
+      provider-name="Industrial TSI, Maarten Meijer">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="Industrial TSI" url="http://bugs.industrial-tsi.com/mylyndb/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.persistence.jpa" version="1.0.1" match="greaterOrEqual"/>
+      <import plugin="javax.persistence" version="1.99.0" match="greaterOrEqual"/>
+      <import plugin="com.industrialtsi.mylyn.core" version="0.9.1.v20090817" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="com.industrialtsi.mylyn.demo.jpa"
+         download-size="0"
+         install-size="10906"
+         version="0.9.5.v20091008"
+         fragment="true"
+         unpack="false"/>
+
+</feature>
