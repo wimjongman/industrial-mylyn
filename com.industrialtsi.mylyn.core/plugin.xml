@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension-point id="persistor" name="persistor" schema="schema/persistor.exsd"/>
+   <extension
+         point="org.eclipse.wst.xml.core.catalogContributions">
+      <catalogContribution>
+         <public
+               publicId="-//Industrial-TSI //DTD Industrial Mylyn Connector//EN"
+               uri="schema/connector.dtd">
+         </public>
+      </catalogContribution>
+   </extension>
+</plugin>

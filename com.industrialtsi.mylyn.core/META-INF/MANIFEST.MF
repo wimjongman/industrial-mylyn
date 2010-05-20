@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Industrial Connector for Mylyn 3.0.x Core
+Bundle-SymbolicName: com.industrialtsi.mylyn.core;singleton:=true
+Bundle-Version: 0.9.5.v20091008
+Bundle-Activator: com.industrialtsi.mylyn.core.IndustrialCore
+Bundle-Vendor: Industrial TSI, Maarten Meijer
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.mylyn.tasks.core;bundle-version="3.0.0",
+ org.eclipse.mylyn.commons.net;bundle-version="3.0.0",
+ org.apache.ibatis;bundle-version="2.3.0";resolution:=optional
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ActivationPolicy: lazy
+Export-Package: com.industrialtsi.mylyn.core;
+  uses:="org.eclipse.mylyn.tasks.core,
+   com.ibatis.sqlmap.client,
+   org.osgi.framework,
+   org.w3c.dom,
+   org.eclipse.mylyn.tasks.core.data,
+   org.eclipse.mylyn.tasks.core.sync,
+   org.eclipse.core.runtime",
+ com.industrialtsi.mylyn.core.config,
+ com.industrialtsi.mylyn.core.dto,
+ com.industrialtsi.mylyn.core.internal;x-friends:="com.industrialtsi.mylyn.tests",
+ com.industrialtsi.mylyn.core.persistence;uses:="com.industrialtsi.mylyn.core.dto,org.eclipse.mylyn.tasks.core,com.ibatis.sqlmap.client"
+Bundle-ClassPath: .
+Eclipse-RegisterBuddy: org.apache.ibatis

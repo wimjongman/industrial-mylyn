@@ -1,0 +1,4 @@
+#Tue Dec 23 17:57:23 CET 2008
+eclipse.preferences.version=1
+org.moreunit.unitsourcefolder=com.industrialtsi.mylyn.core\:Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/classes.jar\:com.industrialtsi.mylyn.tests\:src
+org.moreunit.useprojectsettings=true

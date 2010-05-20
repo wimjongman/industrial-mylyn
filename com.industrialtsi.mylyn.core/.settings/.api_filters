@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component id="org.eclipse.mylyn.sql.core" version="2">
+<resource path="src/org/eclipse/mylyn/sql/core/GenericSqlQuery.java" type="org.eclipse.mylyn.sql.core.GenericSqlQuery">
+<filter id="574619656">
+<message_arguments>
+<message_argument value="IRepositoryQuery"/>
+<message_argument value="GenericSqlQuery"/>
+</message_arguments>
+</filter>
+</resource>
+</component>
