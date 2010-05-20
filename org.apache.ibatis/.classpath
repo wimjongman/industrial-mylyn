@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.4"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="lib"/>
+	<classpathentry exported="true" kind="lib" path="ibatis-2.3.0.677.jar" sourcepath="src/ibatis-src.zip"/>
+	<classpathentry exported="true" kind="lib" path="lib/log4j-1.2.14.jar" sourcepath="org.apache.ibatissrc.zip"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-logging-1.0.4.jar" sourcepath="org.apache.ibatissrc.zip"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-logging-api-1.0.4.jar" sourcepath="org.apache.ibatissrc.zip"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
