@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Jpa Fragment
+Bundle-SymbolicName: com.industrialtsi.mylyn.demo.jpa;singleton:=true
+Bundle-Version: 0.9.5.v20091008
+Fragment-Host: com.industrialtsi.mylyn.core;bundle-version="[0.9.1.v20090817,1.0.0)"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ClassPath: lib/,
+ .
+Require-Bundle: org.eclipse.persistence.jpa;bundle-version="1.0.1",
+ javax.persistence;bundle-version="1.99.0"
+Export-Package: com.industrialtsi.mylyn.demo.jpa;
+  uses:="com.industrialtsi.mylyn.core.dto,
+   org.eclipse.mylyn.tasks.core,
+   com.industrialtsi.mylyn.core.persistence,
+   javax.persistence",
+ com.industrialtsi.mylyn.demo.jpa.annotated;uses:="com.industrialtsi.mylyn.core.dto",
+ com.industrialtsi.mylyn.demo.jpa.setup

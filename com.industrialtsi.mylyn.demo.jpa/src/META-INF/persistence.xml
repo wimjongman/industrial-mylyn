@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+	<persistence-unit name="jpaDemo" transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>com.industrialtsi.mylyn.demo.jpa.annotated.AttachmentEntity</class>
+		<class>com.industrialtsi.mylyn.demo.jpa.annotated.CommentEntity</class>
+		<class>com.industrialtsi.mylyn.demo.jpa.annotated.TaskEntity</class>
+		<class>com.industrialtsi.mylyn.demo.jpa.annotated.StatusEntity</class>
+		<class>com.industrialtsi.mylyn.demo.jpa.annotated.PriorityEntity</class>
+		<class>com.industrialtsi.mylyn.demo.jpa.annotated.ProductEntity</class>
+		<properties>
+			<!-- Derby Login -->
+			<property name="eclipselink.target-database" value="Derby" />
+			<property name="eclipselink.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+			<property name="eclipselink.jdbc.url"
+				value="jdbc:derby:/Users/maarten/tasks/industrial;create=true" />
+			<property name="eclipselink.jdbc.user" value="demo" />
+			<property name="eclipselink.jdbc.password" value="pass" />
+			<property name="eclipselink.jdbc.read-connections.min"
+				value="1" />
+			<property name="eclipselink.jdbc.write-connections.min"
+				value="1" />
+			<property name="eclipselink.jdbc.batch-writing" value="JDBC" />
+
+			<!-- Logging -->
+			<property name="eclipselink.logging.level" value="FINE" />
+			<property name="eclipselink.logging.timestamp" value="false" />
+			<property name="eclipselink.logging.session" value="false" />
+			<property name="eclipselink.logging.thread" value="false" />
+		</properties>
+	</persistence-unit>
+</persistence>

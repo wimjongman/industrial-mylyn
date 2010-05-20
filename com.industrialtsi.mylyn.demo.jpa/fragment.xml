@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<fragment>
+   <extension
+         id="demo.derby.jpa"
+         name="Demo Derby using JPA"
+         point="com.industrialtsi.mylyn.core.persistor">
+      <persistor-config
+            id="com.industrialtsi.mylyn.demo.jpa.persistor-config1"
+            jdbc-url-re="^jdbc:derby::[/:a-zA-Z0-9\\.]*(|:\\d+)*[/a-zA-Z0-9].*$"
+            jdbc-url-template="jdbc:derby:/path/to/db"
+            name="Demo Derby (JPA)"
+            persistor="com.industrialtsi.mylyn.demo.jpa.JPAPersistor">
+         <repository-attributes
+               can-create-new-task="true"
+               can-create-task-from-key="true"
+               can-delete-attachments="false"
+               can-delete-comments="false"
+               can-delete-tasks="false"
+               can-get-attachments="true"
+               can-initialize-schema="false"
+               can-post-attachments="true"
+               can-query-repository="true"
+               can-synchronize-tasks="true">
+         </repository-attributes>
+         <task-attributes
+               task.common.date.created="readwrite"
+               task.common.date.due="readwrite"
+               task.common.date.modified="readwrite"
+               task.common.description="readwrite"
+               task.common.priority="readwrite"
+               task.common.product="readwrite"
+               task.common.reporter="readwrite"
+               task.common.status="readwrite"
+               task.common.summary="readwrite"
+               task.common.user.assigned="readwrite">
+         </task-attributes>
+      </persistor-config>
+   </extension>
+</fragment>
