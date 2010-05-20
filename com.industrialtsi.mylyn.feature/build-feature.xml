@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="feature_export" name="build">
+	<target name="feature_export">
+		<pde.exportFeatures destination="/Users/maarten/site" exportSource="false" exportType="directory" features="com.industrialtsi.mylyn.feature" qualifier="v20080917" useJARFormat="true"/>
+	</target>
+</project>
