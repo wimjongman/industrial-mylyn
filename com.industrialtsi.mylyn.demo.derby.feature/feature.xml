@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.industrialtsi.mylyn.demo.derby.feature"
+      label="Ibatis Derby Demo Feature"
+      version="0.9.5.v20091008"
+      provider-name="Maarten Meijer &amp; Industrial TSI">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="Industrial TSI" url="http://bugs.industrial-tsi.com/mylyndb/"/>
+   </url>
+
+   <requires>
+      <import plugin="com.industrialtsi.mylyn.core" version="0.9.1.v20090817" match="compatible"/>
+      <import feature="org.apache.ibatis.feature" version="2.3.0"/>
+   </requires>
+
+   <plugin
+         id="com.industrialtsi.mylyn.demo.derby"
+         download-size="0"
+         install-size="2701"
+         version="0.9.5.v20091008"
+         fragment="true"
+         unpack="false"/>
+
+</feature>
