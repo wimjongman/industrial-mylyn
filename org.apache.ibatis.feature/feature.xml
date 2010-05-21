@@ -375,6 +375,7 @@ limitations under the License.
    </license>
 
    <url>
+      <update label="Industrial SQL Connector @ Eclipse Labs" url="http://svn.codespot.com/a/eclipselabs.org/industrial-mylyn/trunk/com.industrialtsi.mylyn.site/"/>
       <discovery label="Home of Ibatis for configuration information" url="http://ibatis.apache.org"/>
    </url>
 

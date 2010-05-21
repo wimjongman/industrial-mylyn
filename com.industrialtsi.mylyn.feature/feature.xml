@@ -2,7 +2,7 @@
 <feature
       id="com.industrialtsi.mylyn.feature"
       label="Mylyn Connector: Industrial"
-      version="0.9.5.v20091008"
+      version="0.9.5.v20100521"
       provider-name="Industrial TSI, Maarten Meijer">
 
    <description url="http://wiki.eclipse.org/Mylyn/Incubator/Generic_SQL_Connector">
@@ -19,7 +19,7 @@ Until that is completed, (c) 2008,2009 Maarten Meijer &amp; Industrial TSI. All 
    </license>
 
    <url>
-      <update label="Industrial TSI" url="http://bugs.industrial-tsi.com/mylyndb/"/>
+      <update label="Industrial SQL Connector @ Eclipse Labs" url="http://svn.codespot.com/a/eclipselabs.org/industrial-mylyn/trunk/com.industrialtsi.mylyn.site/"/>
    </url>
 
    <requires>
@@ -36,21 +36,29 @@ Until that is completed, (c) 2008,2009 Maarten Meijer &amp; Industrial TSI. All 
          id="com.industrialtsi.mylyn.core"
          download-size="0"
          install-size="69"
-         version="0.9.5.v20091008"
+         version="0.9.5.v20100521"
          unpack="false"/>
 
    <plugin
          id="com.industrialtsi.mylyn.ui"
          download-size="0"
          install-size="49"
-         version="0.9.5.v20091008"
+         version="0.9.5.v20100521"
          unpack="false"/>
 
    <plugin
          id="com.industrialtsi.mylyn.demo.memory"
          download-size="0"
          install-size="5"
-         version="0.9.5.v20091008"
+         version="0.9.5.v20100521"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="com.industrialtsi.mylyn.twitter"
+         download-size="0"
+         install-size="0"
+         version="0.9.5.v20100521"
          fragment="true"
          unpack="false"/>
 

@@ -1,4 +1,14 @@
-package org.eclipse.mylyn.sql.demo.derby.test;
+/*******************************************************************************
+ * Copyright (c) 2008 Industrial TSI and Maarten Meijer.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Maarten Meijer - initial API and implementation
+ *     Industrial TSI - improvements
+ *******************************************************************************/package org.eclipse.mylyn.sql.demo.derby.test;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

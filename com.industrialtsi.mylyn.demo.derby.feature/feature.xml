@@ -2,7 +2,7 @@
 <feature
       id="com.industrialtsi.mylyn.demo.derby.feature"
       label="Ibatis Derby Demo Feature"
-      version="0.9.5.v20091008"
+      version="0.9.5.v20100521"
       provider-name="Maarten Meijer &amp; Industrial TSI">
 
    <description url="http://www.example.com/description">
@@ -18,7 +18,7 @@
    </license>
 
    <url>
-      <update label="Industrial TSI" url="http://bugs.industrial-tsi.com/mylyndb/"/>
+      <update label="Industrial SQL Connector @ Eclipse Labs" url="http://svn.codespot.com/a/eclipselabs.org/industrial-mylyn/trunk/com.industrialtsi.mylyn.site/"/>
    </url>
 
    <requires>

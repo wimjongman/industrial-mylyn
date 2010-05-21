@@ -1,4 +1,4 @@
-#Mon Sep 15 16:32:15 CEST 2008
+#Fri May 21 14:30:23 CEST 2010
 eclipse.preferences.version=1
-project.repository.kind=bugzilla
-project.repository.url=https\://bugs.eclipse.org/bugs
+project.repository.kind=googlecode
+project.repository.url=https\://code.google.com/a/eclipselabs.org/p/industrial-mylyn
