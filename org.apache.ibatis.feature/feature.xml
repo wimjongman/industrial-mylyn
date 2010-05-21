@@ -6,11 +6,14 @@
       provider-name="ibatis.apache.org">
 
    <description url="http://ibatis.apache.org/">
-      [Enter Feature Description here.]
+      org.apache.ibatis feature is a feature containing the Ibatis SQLMaps persistence library in a OSGi Bundle.
+Ibatis SQLMaps is licensed under the Apache License, more information can be found at http://ibatis.apache.org
+
+This bundle is required for Industrial Connector fragments based on the IbatisPersistor, such as the Ibatis Demo Derby Feature.
    </description>
 
    <copyright url="http://ibatis.apache.org/">
-      [EThis product includes software developed by
+      This product includes software developed by
 The Apache Software Foundation (http://www.apache.org/).
 /* Copyright (c) 1995-2000, The Hypersonic SQL Group.
 * All rights reserved.

@@ -1,25 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.industrialtsi.mylyn.feature"
-      label="Mylyn Connector: Industrial"
+      label="Industrial Connector for Mylyn"
       version="0.9.5.v20100521"
       provider-name="Industrial TSI, Maarten Meijer">
 
-   <description url="http://wiki.eclipse.org/Mylyn/Incubator/Generic_SQL_Connector">
-      A generic connector for Mylyn 3.0.x
+   <description url="http://marketplace.eclipse.org/content/industrial-sql-connector-mylyn">
+      A generic Mylyn connector construction kit for connecting to anything:
+- SQL databases using Ibatis or JPA
+- Twitter out of the box (example)
+- anything by extending a code interface
    </description>
 
-   <copyright url="http://bugs.industrial-tsi.com/mylyndb/copyright.html">
-      [Enter Copyright Description here.]
+   <copyright url="http://industrial-mylyn.eclipselabs.org.codespot.com/files/copyright.html">
+      &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;About&lt;/title&gt;
+&lt;meta http-equiv=Content-Type content=&quot;text/html; charset=ISO-8859-1&quot;&gt;
+&lt;/head&gt;
+&lt;body lang=&quot;EN-US&quot;&gt;
+&lt;h2&gt;About This Content&lt;/h2&gt;
+
+&lt;p&gt;
+September 18, 2008&lt;/p&gt;	
+&lt;h3&gt;Copyright&lt;/h3&gt;
+
+&lt;p&gt;
+Industrial TSI and Maarten Meijer retain all copyright and other
+intellectual property rights.&lt;/p&gt;
+
+&lt;p&gt;
+Please contact Industrial TSI at &lt;a href=&quot;http://www.industrial-tsi.com/&quot;&gt;www.industrial-tsi.com&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
    </copyright>
 
-   <license url="http://bugs.industrial-tsi.com/mylyndb/about.html">
-      We are in the process of contributing this connector to the Eclipse Project.
-Until that is completed, (c) 2008,2009 Maarten Meijer &amp; Industrial TSI. All rights reserved.
+   <license url="http://industrial-mylyn.eclipselabs.org.codespot.com/files/about.html
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;About&lt;/title&gt;
+&lt;meta http-equiv=Content-Type content=&quot;text/html; charset=ISO-8859-1&quot;&gt;
+&lt;/head&gt;
+&lt;body lang=&quot;EN-US&quot;&gt;
+&lt;h2&gt;About This Content&lt;/h2&gt;
+ 
+&lt;p&gt;September 18, 2008&lt;/p&gt;	
+&lt;h3&gt;License&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Industrial TSI&lt;/em&gt; and &lt;em&gt;Maarten Meijer&lt;/em&gt; make available all content in this plug-in (&amp;quot;Content&amp;quot;).  
+Unless otherwise 
+indicated below, the Content is provided to you under the terms and conditions of the
+Eclipse Public License Version 1.0 (&amp;quot;EPL&amp;quot;).  A copy of the EPL is available 
+at &lt;a href=&quot;http://www.eclipse.org/legal/epl-v10.html&quot;&gt;http://www.eclipse.org/legal/epl-v10.html&lt;/a&gt;.
+For purposes of the EPL, &amp;quot;Program&amp;quot; will mean the Content.&lt;/p&gt;
+
+&lt;p&gt;If you did not receive this Content directly from the Eclipse Foundation, the Content is 
+being redistributed by another party (&amp;quot;Industrial TSI&amp;quot;) and different terms and conditions may
+apply to your use of any object code in the Content.  Check the Industrial TSI license that was 
+provided with the Content.  If no such license exists, contact the Industrial TSI.  Unless otherwise
+indicated below, the terms and conditions of the EPL still apply to any source code in the Content
+and such source code may be obtained at &lt;a href=&quot;/&quot;&gt;http://www.industrial-tsi.com/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;About&lt;/title&gt;
+&lt;meta http-equiv=Content-Type content=&quot;text/html; charset=ISO-8859-1&quot;&gt;
+&lt;/head&gt;
+&lt;body lang=&quot;EN-US&quot;&gt;
+&lt;h2&gt;About This Content&lt;/h2&gt;
+ 
+&lt;p&gt;September 18, 2008&lt;/p&gt;	
+&lt;h3&gt;License&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Industrial TSI&lt;/em&gt; and &lt;em&gt;Maarten Meijer&lt;/em&gt; make available all content in this plug-in (&amp;quot;Content&amp;quot;).  
+Unless otherwise 
+indicated below, the Content is provided to you under the terms and conditions of the
+Eclipse Public License Version 1.0 (&amp;quot;EPL&amp;quot;).  A copy of the EPL is available 
+at &lt;a href=&quot;http://www.eclipse.org/legal/epl-v10.html&quot;&gt;http://www.eclipse.org/legal/epl-v10.html&lt;/a&gt;.
+For purposes of the EPL, &amp;quot;Program&amp;quot; will mean the Content.&lt;/p&gt;
+
+&lt;p&gt;If you did not receive this Content directly from the Eclipse Foundation, the Content is 
+being redistributed by another party (&amp;quot;Industrial TSI&amp;quot;) and different terms and conditions may
+apply to your use of any object code in the Content.  Check the Industrial TSI license that was 
+provided with the Content.  If no such license exists, contact the Industrial TSI.  Unless otherwise
+indicated below, the terms and conditions of the EPL still apply to any source code in the Content
+and such source code may be obtained at &lt;a href=&quot;/&quot;&gt;http://www.industrial-tsi.com/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;">
+      &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;About&lt;/title&gt;
+&lt;meta http-equiv=Content-Type content=&quot;text/html; charset=ISO-8859-1&quot;&gt;
+&lt;/head&gt;
+&lt;body lang=&quot;EN-US&quot;&gt;
+&lt;h2&gt;About This Content&lt;/h2&gt;
+
+&lt;p&gt;
+September 18, 2008&lt;/p&gt;	
+&lt;h3&gt;License&lt;/h3&gt;
+
+&lt;p&gt;
+&lt;em&gt;Industrial TSI&lt;/em&gt; and &lt;em&gt;Maarten Meijer&lt;/em&gt; make available
+all content in this plug-in (&amp;quot;Content&amp;quot;).  
+Unless otherwise 
+indicated below, the Content is provided to you under the terms
+and conditions of the
+Eclipse Public License Version 1.0 (&amp;quot;EPL&amp;quot;).  A copy
+of the EPL is available 
+at &lt;a href=&quot;http://www.eclipse.org/legal/epl-v10.html&quot;&gt;http://www.eclipse.org/legal/epl-v10.html&lt;/a&gt;.
+For purposes of the EPL, &amp;quot;Program&amp;quot; will mean the Content.&lt;/p&gt;
+
+&lt;p&gt;
+If you did not receive this Content directly from the Eclipse
+Foundation, the Content is 
+being redistributed by another party (&amp;quot;Industrial TSI&amp;quot;)
+and different terms and conditions may
+apply to your use of any object code in the Content.  Check the
+Industrial TSI license that was 
+provided with the Content.  If no such license exists, contact
+the Industrial TSI.  Unless otherwise
+indicated below, the terms and conditions of the EPL still apply
+to any source code in the Content
+and such source code may be obtained at &lt;a href=&quot;/&quot;&gt;http://www.industrial-tsi.com/&lt;/a&gt;.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
    </license>
 
    <url>
       <update label="Industrial SQL Connector @ Eclipse Labs" url="http://svn.codespot.com/a/eclipselabs.org/industrial-mylyn/trunk/com.industrialtsi.mylyn.site/"/>
+      <discovery label="Mylyn Site" url="http://download.eclipse.org/tools/mylyn/update/e3.4"/>
    </url>
 
    <requires>
