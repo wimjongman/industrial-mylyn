@@ -1,10 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2008 Industrial TSI and Maarten Meijer. All rights reserved.
- * This program and the accompanying materials are made available under the
- * terms of the Eclipse Public License v1.0 which accompanies this distribution,
- * and is available at http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors: Maarten Meijer - initial API and implementation
+ * Copyright (c) 2008,2009,2010 Industrial TSI and Maarten Meijer.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Maarten Meijer - initial API and implementation
  *******************************************************************************/
 package com.industrialtsi.mylyn.db;
 
@@ -37,10 +39,10 @@ public class DerbyTestDataExporter {
 			IDatabaseConnection connection = new DatabaseConnection(jdbcConnection);
 
 			String schema = connection.getSchema();
-			
+
 			System.out.println(schema);
-			
-			
+
+
 			// partial database export
 			QueryDataSet partialDataSet = new QueryDataSet(connection);
 			partialDataSet.addTable("issues");

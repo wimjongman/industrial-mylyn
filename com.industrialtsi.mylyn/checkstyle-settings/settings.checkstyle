@@ -15,7 +15,7 @@
         <module name="UnusedImports"/>
         <module name="Header">
             <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="Industrial TSI and Maarten Meijer"/>
-            <metadata name="com.atlassw.tools.eclipse.checkstyle.customMessage" value="(c) 2008,2009,2001 Industrial TSI and Maarten Meijer"/>
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.customMessage" value="(c) 2008,2009,2010 Industrial TSI and Maarten Meijer"/>
             <property name="headerFile" value="${workspace_loc}/com.industrialtsi.mylyn/checkstyle-settings/fileheader.txt"/>
             <property name="ignoreLines" value="9,10,11,12,13"/>
         </module>

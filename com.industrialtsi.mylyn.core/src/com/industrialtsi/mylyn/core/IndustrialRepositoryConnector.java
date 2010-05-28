@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008 Industrial TSI and Maarten Meijer.
+ * Copyright (c) 2008,2009,2010 Industrial TSI and Maarten Meijer.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -81,6 +81,7 @@ public class IndustrialRepositoryConnector extends AbstractRepositoryConnector {
 	}
 
 	// @Override
+	@Override
 	public boolean canDeleteTask(TaskRepository repository, ITask task) {
 		String flag = repository.getProperty(IndustrialCore.CAN_DELETE_TASKS);
 		return flag != null && "true".equalsIgnoreCase(flag); //$NON-NLS-1$
@@ -106,6 +107,7 @@ public class IndustrialRepositoryConnector extends AbstractRepositoryConnector {
 	}
 
 //	@Override
+	@Override
 	public IStatus deleteTask(TaskRepository repository, ITask task,
 			IProgressMonitor monitor) throws CoreException {
 		IStatus status = Status.OK_STATUS;
@@ -252,7 +254,7 @@ public class IndustrialRepositoryConnector extends AbstractRepositoryConnector {
 	public void updateRepositoryConfiguration(TaskRepository repository,
 			IProgressMonitor monitor) throws CoreException {
 
-		List<String> results = new ArrayList<String>();
+		// List<String> results = new ArrayList<String>();
 
 		refreshRepositoryProperties(repository);
 
