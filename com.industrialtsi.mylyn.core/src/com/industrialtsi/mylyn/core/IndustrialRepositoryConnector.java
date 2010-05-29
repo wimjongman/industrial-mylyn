@@ -12,6 +12,7 @@ package com.industrialtsi.mylyn.core;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -27,9 +28,11 @@ import org.eclipse.mylyn.tasks.core.ITask;
 import org.eclipse.mylyn.tasks.core.TaskRepository;
 import org.eclipse.mylyn.tasks.core.data.AbstractTaskAttachmentHandler;
 import org.eclipse.mylyn.tasks.core.data.AbstractTaskDataHandler;
+import org.eclipse.mylyn.tasks.core.data.TaskAttribute;
 import org.eclipse.mylyn.tasks.core.data.TaskData;
 import org.eclipse.mylyn.tasks.core.data.TaskDataCollector;
 import org.eclipse.mylyn.tasks.core.data.TaskMapper;
+import org.eclipse.mylyn.tasks.core.data.TaskRelation;
 import org.eclipse.mylyn.tasks.core.sync.ISynchronizationSession;
 
 import com.industrialtsi.mylyn.core.dto.IndustrialQueryParams;
@@ -45,9 +48,9 @@ import com.industrialtsi.mylyn.core.persistence.PersistorsManager;
  * <code>IndustrialRepositoryConnector</code> : connector from Mylyn to mainly
  * SQL databases using Ibatis, or using any other {@link IPersistor} extending
  * {@link PersistorAdapter}.
- * 
+ *
  * @author maarten meijer
- * 
+ *
  */
 public class IndustrialRepositoryConnector extends AbstractRepositoryConnector {
 
@@ -58,6 +61,8 @@ public class IndustrialRepositoryConnector extends AbstractRepositoryConnector {
 	private final IndustrialAttachmentHandler attachmentHandler;
 
 	public static final String IBATIS_SEPARATOR = "#"; //$NON-NLS-1$
+
+	public static final String DEPENDSON_KEY = "dependson";	 //$NON-NLS-1$
 
 	@Override
 	public boolean canCreateNewTask(TaskRepository repository) {
@@ -179,6 +184,19 @@ public class IndustrialRepositoryConnector extends AbstractRepositoryConnector {
 	public String getTaskUrl(String repositoryUrl, String taskId) {
 		return repositoryUrl + IndustrialRepositoryConnector.IBATIS_SEPARATOR
 				+ taskId;
+	}
+
+	@Override
+	public Collection<TaskRelation> getTaskRelations(TaskData taskData) {
+		List<TaskRelation> relations = new ArrayList<TaskRelation>();
+		TaskAttribute attribute = taskData.getRoot().getAttribute(DEPENDSON_KEY);
+		if (attribute != null && attribute.getValue().length() > 0) {
+			// we wil store as comma separated list
+			for (String taskId : attribute.getValue().split(",")) { //$NON-NLS-1$
+				relations.add(TaskRelation.subtask(taskId.trim()));
+			}
+		}
+		return relations;
 	}
 
 	@Override
