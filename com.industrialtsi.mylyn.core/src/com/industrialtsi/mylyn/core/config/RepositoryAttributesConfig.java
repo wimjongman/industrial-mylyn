@@ -12,7 +12,7 @@
 package com.industrialtsi.mylyn.core.config;
 
 /**
- * <code>RepositoryAttributesConfig</code> : TODO describe.
+ * <code>RepositoryAttributesConfig</code> holder for the attributes as defined in plugin.xml.
  *
  * @author maarten
  *
@@ -35,6 +35,13 @@ public class RepositoryAttributesConfig {
 	private boolean canDeleteTasks;
 
 	private boolean canDeleteComments;
+	
+	private boolean canDeleteAttachments;
+
+	/**
+	 * @since 0.9.6 negative default is false
+	 */
+	private boolean canNotCreateComments;
 
 	/**
 	 * @return the canCreateNewTasks
@@ -176,5 +183,18 @@ public class RepositoryAttributesConfig {
 		this.canDeleteAttachments = canDeleteAttachments;
 	}
 
-	private boolean canDeleteAttachments;
+	/**
+	 * @param canCreateComments the canCreateComments to set
+	 */
+	public void setCannotCreateComments(boolean canCreateComments) {
+		this.canNotCreateComments = canCreateComments;
+	}
+
+	/**
+	 * @return the canCreateComments
+	 */
+	public boolean isCannotCreateComments() {
+		return canNotCreateComments;
+	}
+
 }

@@ -30,6 +30,7 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Widget;
 
 import com.industrialtsi.mylyn.core.IndustrialCore;
 import com.industrialtsi.mylyn.core.persistence.PersistorsManager;
@@ -42,12 +43,21 @@ import com.industrialtsi.mylyn.ui.internal.UILogger;
  */
 /**
  * <code>IndustrialRepositorySettingsPage</code> : TODO describe.
- *
+ * 
  * @author maarten
- *
+ * 
  */
 public class IndustrialRepositorySettingsPage extends
 		AbstractRepositorySettingsPage {
+
+	private static final String JDBC_URL_DEFAULT = "jdbc:<driver>://<host>[:<port>]/<database>";
+
+	private static final String EXAMPLE = "Example: ";
+
+	private static final String DESCRIPTION = EXAMPLE
+ + JDBC_URL_DEFAULT; //$NON-NLS-1$
+
+	private static final String TITLE = "Industrial Repository Settings"; //$NON-NLS-1$
 
 	/**
 	 * @author Maarten Meijer
@@ -71,7 +81,7 @@ public class IndustrialRepositorySettingsPage extends
 
 		@Override
 		public void run(IProgressMonitor monitor) throws CoreException {
-			
+
 			// memory always works
 			if (repository.getUrl().contains("memory")) { //$NON-NLS-1$
 				UILogger.logInfo("Memory always validates"); //$NON-NLS-1$
@@ -79,12 +89,13 @@ public class IndustrialRepositorySettingsPage extends
 			}
 
 			if (!includedConfig) {
-				if (ibatisConfig && includedIbatisConfigs.getVisible() &&"".equals(includedIbatisConfigs.getText())) {
-				Status error = new Status(IStatus.ERROR,
-						IndustrialCore.PLUGIN_ID,
-						"Select one from Included Repository Config."); //$NON-NLS-1$
-				//throw new CoreException(error);
-				setStatus(error);
+				if (ibatisConfig && includedIbatisConfigs.getVisible()
+						&& "".equals(includedIbatisConfigs.getText())) {
+					Status error = new Status(IStatus.ERROR,
+							IndustrialCore.PLUGIN_ID,
+							"Select one from Included Repository Config."); //$NON-NLS-1$
+					// throw new CoreException(error);
+					setStatus(error);
 				}
 			}
 
@@ -106,13 +117,15 @@ public class IndustrialRepositorySettingsPage extends
 								.canInitialize(repository)) {
 					Display.getDefault().syncExec(new Runnable() {
 						public void run() {
-							if (MessageDialog.openQuestion(getShell(),
-									"The repository is not initialized", //$NON-NLS-1$
-									"Do you want to initialize the repository '" + repository.getUrl() +"'?")) { //$NON-NLS-1$ //$NON-NLS-2$
+							if (MessageDialog
+									.openQuestion(
+											getShell(),
+											"The repository is not initialized", //$NON-NLS-1$
+											"Do you want to initialize the repository '" + repository.getUrl() + "'?")) { //$NON-NLS-1$ //$NON-NLS-2$
 								try {
 									applyTo(repository);
 									IndustrialCore.getDefault()
-									.forgetTaskSqlMapConfig(repository);
+											.forgetTaskSqlMapConfig(repository);
 									IndustrialCore.getDefault()
 											.initializeRepository(repository);
 									// need to reinitialize...
@@ -127,15 +140,16 @@ public class IndustrialRepositorySettingsPage extends
 				boolean authenticated = IndustrialCore.getDefault()
 						.authenticateRepository(repository);
 				if (!authenticated) {
-					IStatus status = UILogger.createStatus(IStatus.ERROR,
-							"Cannot autheticate user with repository '" + repository.getUrl() //$NON-NLS-1$
-									+ "'", //$NON-NLS-1$
-							null);
+					IStatus status = UILogger
+							.createStatus(
+									IStatus.ERROR,
+									"Cannot autheticate user with repository '" + repository.getUrl() //$NON-NLS-1$
+											+ "'", //$NON-NLS-1$
+									null);
 					setStatus(status);
 					UILogger.log(status);
 				}
 
-				
 				IndustrialCore.getDefault().getConnector()
 						.updateRepositoryConfiguration(repository, monitor);
 			} catch (final CoreException e) {
@@ -153,10 +167,6 @@ public class IndustrialRepositorySettingsPage extends
 
 	}
 
-	private static final String DESCRIPTION = "Example: jdbc:<driver>://<host>[:<port>]/<database>"; //$NON-NLS-1$
-
-	private static final String TITLE = "Industrial Repository Settings"; //$NON-NLS-1$
-
 	private Combo includedIbatisConfigs;
 
 	private Combo configuredRepositoriesCombo;
@@ -168,6 +178,8 @@ public class IndustrialRepositorySettingsPage extends
 	private boolean ibatisConfig;
 
 	private Object previous;
+
+	private Label repositoriesLabel;
 
 	public IndustrialRepositorySettingsPage(TaskRepository taskRepository) {
 		super(TITLE, DESCRIPTION, taskRepository);
@@ -185,7 +197,7 @@ public class IndustrialRepositorySettingsPage extends
 	protected void createAdditionalControls(Composite parent) {
 		GridData comboData = new GridData();
 
-		Label repositoriesLabel = new Label(parent, SWT.None);
+		repositoriesLabel = new Label(parent, SWT.None);
 		repositoriesLabel.setText("Choose a Repository"); //$NON-NLS-1$
 
 		comboData.horizontalAlignment = GridData.FILL;
@@ -198,8 +210,7 @@ public class IndustrialRepositorySettingsPage extends
 				.getRepositoryNamesAsArray();
 		configuredRepositoriesCombo.setItems(repositoryNames);
 		configuredRepositoriesCombo.select(0);
-		if (null != repository
-				&& repositoryNames.length > 0) {
+		if (null != repository && repositoryNames.length > 0) {
 			String repositoryName = repository
 					.getProperty(IndustrialCore.REPOSITORY_CONFIG_NAME);
 			if (null != repositoryName) {
@@ -217,7 +228,8 @@ public class IndustrialRepositorySettingsPage extends
 
 					public void widgetSelected(SelectionEvent e) {
 						showHideIbatisMaps();
-						if("".equals(repository.getUrl())) { //$NON-NLS-1$
+						if (null == repository
+								|| "".equals(repository.getUrl())) { //$NON-NLS-1$
 							setUrlTemplate();
 						}
 						getWizard().getContainer().updateButtons();
@@ -239,6 +251,21 @@ public class IndustrialRepositorySettingsPage extends
 	}
 
 	@Override
+	public void dispose() {
+		safeDispose(includedIbatisConfigs);
+		safeDispose(configuredRepositoriesCombo);
+		safeDispose(ibatisConfigLabel);
+		safeDispose(repositoriesLabel);
+		super.dispose();
+	}
+
+	private void safeDispose(Widget w) {
+		if (null != w && !w.isDisposed()) {
+			w.dispose();
+		}
+	}
+
+	@Override
 	public String getConnectorKind() {
 		return IndustrialCore.CONNECTOR_KIND;
 	}
@@ -253,24 +280,23 @@ public class IndustrialRepositorySettingsPage extends
 		// the form foreseen is a JDBC type URL consisting of a driver, a host
 		// and a port number. jdbc:<driver>://<host>:<port>/<database>
 		// FIXME Move this regex to some config file?
-		
-		if(name.contains("jdbc:memory")) //$NON-NLS-1$
+
+		if (name.contains("jdbc:memory")) //$NON-NLS-1$
 			return true;
-		
-		if("".equals(name)) { //$NON-NLS-1$
+
+		if ("".equals(name)) { //$NON-NLS-1$
 			setUrlTemplate();
 			return true;
 		}
 
-		if(name.equals(previous)) {
+		if (name.equals(previous)) {
 			return true;
 		} else {
 			previous = name;
 		}
-		
+
 		String urlRE = getMatchRegularExpression();
-		
-		
+
 		Pattern p = Pattern.compile(urlRE);
 		Matcher m = p.matcher(name);
 		boolean matches = m.matches();
@@ -287,32 +313,43 @@ public class IndustrialRepositorySettingsPage extends
 
 	private String getMatchRegularExpression() {
 		String urlRE = null;
-		if(null != taskRepository) {
-			String repositoryName = taskRepository.getProperty(IndustrialCore.REPOSITORY_CONFIG_NAME);
-			urlRE = PersistorsManager.getManager().getJdbcUrlRegularExpression(repositoryName);
+		if (null != taskRepository) {
+			String repositoryName = taskRepository
+					.getProperty(IndustrialCore.REPOSITORY_CONFIG_NAME);
+			urlRE = PersistorsManager.getManager().getJdbcUrlRegularExpression(
+					repositoryName);
 		}
-		if(null == urlRE) {
+		if (null == urlRE) {
 			String config = configuredRepositoriesCombo.getText();
-			urlRE = PersistorsManager.getManager().getJdbcUrlRegularExpression(config);
+			urlRE = PersistorsManager.getManager().getJdbcUrlRegularExpression(
+					config);
 		}
-		
-		if(null == urlRE){
+
+		if (null == urlRE) {
 			urlRE = "^jdbc:[a-zA-Z0-9]+:[/:a-zA-Z0-9\\.]*(|:\\d+)*[/a-zA-Z0-9].*$"; //$NON-NLS-1$
 		}
 		return urlRE;
 	}
 
 	/**
-	 *	FIXME intended to set an example URL from extension point 
+	 * FIXME intended to set an example URL from extension point
 	 */
 	private void setUrlTemplate() {
-		if(null == configuredRepositoriesCombo)
+		if (null == configuredRepositoriesCombo) {
+			setDescription(DESCRIPTION);
+			setUrl(JDBC_URL_DEFAULT);
 			return;
+		}
 		String config = configuredRepositoriesCombo.getText();
-		if(null == config)
+		if (null == config) {
+			setDescription(DESCRIPTION);
+			setUrl(JDBC_URL_DEFAULT);
 			return;
-		String template = PersistorsManager.getManager().getJdbcUrlTemplate(config);
+		}
+		String template = PersistorsManager.getManager().getJdbcUrlTemplate(
+				config);
 		setUrl(template);
+		setDescription(EXAMPLE + template);
 	}
 
 	/**
@@ -337,9 +374,11 @@ public class IndustrialRepositorySettingsPage extends
 	private void showHideIbatisMaps() {
 		boolean ibatis = PersistorsManager.getManager().isIbatisRepository(
 				configuredRepositoriesCombo.getSelectionIndex());
-		if(ibatis) {
-			String selected = configuredRepositoriesCombo.getItem(configuredRepositoriesCombo.getSelectionIndex());
-			String[] items = PersistorsManager.getManager().getIbatisMapLocations(selected);
+		if (ibatis) {
+			String selected = configuredRepositoriesCombo
+					.getItem(configuredRepositoriesCombo.getSelectionIndex());
+			String[] items = PersistorsManager.getManager()
+					.getIbatisMapLocations(selected);
 			includedIbatisConfigs.setItems(items);
 			if (null != repository) {
 				String include = repository
@@ -357,7 +396,6 @@ public class IndustrialRepositorySettingsPage extends
 		ibatisConfig = ibatis;
 	}
 
-	
 	@Override
 	public void applyTo(TaskRepository repository) {
 		super.applyTo(repository);
@@ -377,6 +415,4 @@ public class IndustrialRepositorySettingsPage extends
 		}
 	}
 
-	
-	
 }

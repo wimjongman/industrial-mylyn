@@ -43,7 +43,7 @@
          <ibatis-config
                driver="org.apache.derby.jdbc.ClientDriver"
                maps="maps/derby_network_demo/SqlMapConfig.xml"
-               name="Derby Demo Shared Instance  ">
+               name="Derby Demo Shared Instance">
          </ibatis-config>
        </persistor-config>
    </extension>

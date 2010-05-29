@@ -140,6 +140,13 @@
                </documentation>
             </annotation>
          </attribute>
+         <attribute name="can-not-create-comment" type="boolean">
+            <annotation>
+               <documentation>
+                  Can create comments, set this to true get rid of new comment box in read-only connectors.
+               </documentation>
+            </annotation>
+         </attribute>
       </complexType>
    </element>
 
