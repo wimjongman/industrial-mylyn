@@ -335,9 +335,6 @@ Default for all task attributes is readonly.
                <documentation>
                   THe label in the first popup.
                </documentation>
-               <appInfo>
-                  <meta.attribute translatable="true"/>
-               </appInfo>
             </annotation>
          </attribute>
          <attribute name="persistor" type="string" use="required">

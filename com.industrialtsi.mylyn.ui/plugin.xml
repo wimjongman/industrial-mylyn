@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
+   <extension-point id="repositoryPageFactory" name="Repository Page Factory" schema="schema/repositoryPageFactory.exsd"/>
    <extension
          point="org.eclipse.mylyn.tasks.ui.repositories">
       <connectorCore
@@ -16,6 +17,7 @@
             overlayIcon="icons/industrial_overlay.GIF">
       </connectorUi>
    </extension>
+   
    <extension
          point="org.eclipse.mylyn.tasks.core.templates">
       <repository
@@ -61,5 +63,4 @@
          </command>
         </menuContribution>
    </extension>
-
-</plugin>
+    </plugin>

@@ -2,6 +2,8 @@
 <?eclipse version="3.4"?>
 <fragment>
    <extension
+         id="demo.twitter"
+         name="Twitter Demo"
          point="com.industrialtsi.mylyn.core.persistor">
       <persistor-config
             id="com.industrialtsi.mylyn.twitter.persistor-config"
@@ -34,6 +36,13 @@
                task.common.user.assigned="readonly">
          </task-attributes>
       </persistor-config>
+   </extension>
+   <extension
+         point="com.industrialtsi.mylyn.ui.repositoryPageFactory">
+      <class
+            factory="com.industrialtsi.mylyn.twitter.internal.ui.RepositoryPageFactory"
+            persistor="IndustrialTwitter">
+      </class>
    </extension>
 
 </fragment>

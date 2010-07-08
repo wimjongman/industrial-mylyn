@@ -17,3 +17,5 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Import-Package: com.industrialtsi.mylyn.core,
  org.eclipse.mylyn.internal.provisional.commons.ui
+Bundle-ClassPath: .
+Export-Package: com.industrialtsi.mylyn.ui.query

@@ -16,6 +16,7 @@ package com.industrialtsi.mylyn.twitter.persistor;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
@@ -40,22 +41,14 @@ public class TwitterPersistor extends PersistorAdapter {
 
 	private static final String RETWEETS_BY = "Retweets By";
 
-	private static final String FAVOURITES = "Favourites";
-
-	private static final String TWITTER_KEY_SEPARATOR = ":"; //$NON-NLS-1$
 
 	public final static String ID = "com.industrialtsi.mylyn.twitter"; //$NON-NLS-1$
 
 	private static final String MENTIONS = "Mentions";
 
-	private static final String DIRECTMESSAGES = "Direct Messages";
-
-	private User user;
-
 	private Twitter twitter;
 
 	public TwitterPersistor() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -101,7 +94,6 @@ public class TwitterPersistor extends PersistorAdapter {
 			tweet.setNotes(result.getText());
 			return tweet;
 		} catch (TwitterException e) {
-			// TODO Auto-generated catch block
 			IStatus status = CoreLogger.createStatus(IStatus.ERROR, e);
 			throw new CoreException(status);
 		}
@@ -120,6 +112,12 @@ public class TwitterPersistor extends PersistorAdapter {
 			for (User friend : friends) {
 				result.add(friend.getName() + " (" + friend.getScreenName()
 						+ ")");
+			}
+			Object[] res = result.toArray();
+			Arrays.sort(res);
+			result = new ArrayList<String>();
+			for (Object object : res) {
+				result.add((String) object);
 			}
 			return result;
 		} catch (TwitterException e) {
@@ -154,16 +152,6 @@ public class TwitterPersistor extends PersistorAdapter {
 
 		// Test Summary text
 		String find = criteria.getSummaryOrEmpty();
-		if (!contains(s, find))
-			return false;
-
-		// Test comments text
-		find = criteria.getCommentsOrEmpty();
-		if (!contains(s, find))
-			return false;
-
-		// Test description text
-		find = criteria.getNotesOrEmpty();
 		if (!contains(s, find))
 			return false;
 
@@ -220,7 +208,7 @@ public class TwitterPersistor extends PersistorAdapter {
 			throws SQLException, CoreException {
 
 		try {
-			user = getTwitter(repository).verifyCredentials();
+			getTwitter(repository).verifyCredentials();
 			return true;
 		} catch (TwitterException e) {
 			Status status = new Status(IStatus.ERROR, TwitterPersistor.ID,
