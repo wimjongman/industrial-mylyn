@@ -18,6 +18,12 @@
    <feature url="features/org.eclipse.mylyn.industrial.dev_3.3.0.201005291712.jar" id="org.eclipse.mylyn.industrial.dev" version="3.3.0.201005291712">
       <category name="Mylyn Development Tools"/>
    </feature>
+   <feature url="features/com.industrialtsi.mylyn.feature_0.9.7.v20110401.jar" id="com.industrialtsi.mylyn.feature" version="0.9.7.v20110401">
+      <category name="Industrial Connector Base"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.demo.derby.feature_0.9.7.v20110401.jar" id="com.industrialtsi.mylyn.demo.derby.feature" version="0.9.7.v20110401">
+      <category name="Example Ibatis based connector fragment"/>
+   </feature>
    <category-def name="Industrial Connector Base" label="Industrial Connector Base">
       <description>
          The base industrial conenctor for mylyn, you need to extend with your own fragment to connect to a database.
