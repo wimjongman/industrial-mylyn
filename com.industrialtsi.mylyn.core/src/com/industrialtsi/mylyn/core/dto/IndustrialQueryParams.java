@@ -10,6 +10,10 @@
  *******************************************************************************/
 package com.industrialtsi.mylyn.core.dto;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Date;
 
 import com.industrialtsi.mylyn.core.internal.CoreLogger;
@@ -47,6 +51,8 @@ import com.industrialtsi.mylyn.core.internal.CoreLogger;
  * @author Maarten Meijer
  */
 public class IndustrialQueryParams extends IndustrialQueryOptions {
+
+	private static final String UTF_8 = "UTF-8";
 
 	public static final String COMPLETION_AFTER = "completionAfter="; //$NON-NLS-1$
 
@@ -114,11 +120,11 @@ public class IndustrialQueryParams extends IndustrialQueryOptions {
 		appendSingle(sb, getComments(), COMMENTS);
 
 		appendDate(sb, creationDateBefore, CREATION_BEFORE);
-		
+
 		appendDate(sb, creationDateAfter, CREATION_AFTER);
 
 		appendDate(sb, dueDateBefore, DUE_BEFORE);
-		
+
 		appendDate(sb, dueDateAfter, DUE_AFTER);
 
 		appendDate(sb, completionDateBefore, COMPLETION_BEFORE);
@@ -142,7 +148,11 @@ public class IndustrialQueryParams extends IndustrialQueryOptions {
 		if (null != items && items.length != 0) {
 			sb.append(prefix);
 			for (String item : items) {
-				sb.append(item);
+				try {
+					sb.append(URLEncoder.encode(item, UTF_8));
+				} catch (UnsupportedEncodingException e) {
+					;
+				}
 				sb.append("|"); //$NON-NLS-1$
 			}
 			sb.append("&"); //$NON-NLS-1$
@@ -156,7 +166,7 @@ public class IndustrialQueryParams extends IndustrialQueryOptions {
 			sb.append("&"); //$NON-NLS-1$
 		}
 	}
-	
+
 	/**
 	 * @param fullUrl
 	 * @return
@@ -209,20 +219,33 @@ public class IndustrialQueryParams extends IndustrialQueryOptions {
 				stringBuilder.append("Unknown key in query: '"); //$NON-NLS-1$
 				stringBuilder.append(field);
 				stringBuilder.append("'"); //$NON-NLS-1$
-				CoreLogger.logError(stringBuilder.toString(), new IllegalArgumentException(field)); 
+				CoreLogger.logError(stringBuilder.toString(),
+						new IllegalArgumentException(field));
 			}
 
 		}
 		return true;
 	}
-	
+
 	private Date parseDate(String field, String prefix) {
 		long mills = Long.parseLong(field.substring(prefix.length()));
-		return new Date(mills);		
+		return new Date(mills);
 	}
 
 	private String[] parseMulti(String field, String prefix) {
-		return field.substring(prefix.length()).split("\\|");		 //$NON-NLS-1$
+		String[] encoded = field.substring(prefix.length()).split("\\|"); //$NON-NLS-1$
+		ArrayList<String> decoded = new ArrayList<String>();
+
+		for (String val : encoded) {
+			try {
+				decoded.add(URLDecoder.decode(val, UTF_8));
+			} catch (UnsupportedEncodingException e) {
+				// ignore
+				;
+			}
+		}
+
+		return decoded.toArray(new String[0]);
 	}
 
 	/**
