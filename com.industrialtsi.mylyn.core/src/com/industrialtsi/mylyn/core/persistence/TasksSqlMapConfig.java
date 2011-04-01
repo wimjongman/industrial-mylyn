@@ -18,8 +18,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 import java.util.Map.Entry;
+import java.util.Properties;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
@@ -38,7 +38,8 @@ import com.industrialtsi.mylyn.core.internal.CoreLogger;
 
 /**
  * TasksSqlMapConfig -- read in the configuration and the database parameters
- * for SqlMaps for use with the <code>com.industrialtsi.mylyn.core</code> package
+ * for SqlMaps for use with the <code>com.industrialtsi.mylyn.core</code>
+ * package
  * 
  * @author Maarten Meijer
  * 
@@ -78,8 +79,11 @@ public class TasksSqlMapConfig {
 	/**
 	 * @return SqlMap as used buy the various beans
 	 * @throws CoreException
+	 * 
+	 *             TODO issue 15 maybe should be synchronised
 	 */
-	public static SqlMapClient getSqlMapInstance(TaskRepository repository)
+	public static synchronized SqlMapClient getSqlMapInstance(
+			TaskRepository repository)
 			throws CoreException {
 
 
@@ -103,9 +107,9 @@ public class TasksSqlMapConfig {
 			throw new CoreException(init);
 		}
 		// FIXME clean up code below to reduce Cyclomatic Complexity
-		
+
 		SqlMapClient newSqlMap = null;
-		
+
 		InputStream resource = null;
 		InputStream propStream = null;
 		Properties properties = new Properties();
@@ -123,8 +127,9 @@ public class TasksSqlMapConfig {
 					config = template.getMaps();
 
 					properties.setProperty(DRIVER_KEY, template.getDriver());
-					properties.setProperty(DB_USER_KEY, template.getUsername()); 
-					properties.setProperty(DB_PASSWORD_KEY, template.getPassword()); 
+					properties.setProperty(DB_USER_KEY, template.getUsername());
+					properties.setProperty(DB_PASSWORD_KEY,
+							template.getPassword());
 
 					Map<String, String> persistorProperties = PersistorsManager
 							.getManager().getPersistorProperties(repository);
@@ -238,7 +243,8 @@ public class TasksSqlMapConfig {
 	 * @param repositoryKey
 	 * @throws CoreException
 	 */
-	private static void forgetMap(String repositoryKey) throws CoreException {
+	private static synchronized void forgetMap(String repositoryKey)
+			throws CoreException {
 		SqlMapClient client = sqlMaps.get(repositoryKey);
 		if (null == client) {
 			return;
