@@ -5,6 +5,9 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>com.industrialtsi.mylyn.maven</name>
+  <properties>
+    <tycho.version>0.11.1</tycho.version>
+  </properties>
   <description>Maven Build project for Industrial SQL Connector</description>
   <modules>
 <!--
@@ -28,13 +31,13 @@
       <plugin>
         <groupId>org.sonatype.tycho</groupId>
         <artifactId>tycho-maven-plugin</artifactId>
-        <version>0.10.0</version>
+        <version>${tycho.version}</version>
         <extensions>true</extensions>
       </plugin>
     <plugin>
         <groupId>org.sonatype.tycho</groupId>
         <artifactId>tycho-packaging-plugin</artifactId>
-        <version>0.10.0</version>
+        <version>${tycho.version}</version>
         <configuration>
           <deployableFeature>true</deployableFeature>
         </configuration>
