@@ -21,7 +21,6 @@ import org.eclipse.mylyn.tasks.core.TaskRepository;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.industrialtsi.mylyn.core.IndustrialCore;
 import com.industrialtsi.mylyn.core.internal.CoreLogger;
-import com.industrialtsi.mylyn.core.persistence.IbatisPersistor;
 
 /**
  * <code>DerbyIbatisPersistor</code> : TODO describe.
@@ -45,7 +44,7 @@ public class DerbyIbatisPersistor extends IbatisPersistor {
 			"CREATE TABLE tasks.version (version integer not null default 1)" };
 
 	/**
-	 * 
+	 *
 	 */
 	public DerbyIbatisPersistor() {
 		// TODO Auto-generated constructor stub

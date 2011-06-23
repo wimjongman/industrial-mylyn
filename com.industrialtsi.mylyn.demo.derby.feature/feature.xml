@@ -2,7 +2,7 @@
 <feature
       id="com.industrialtsi.mylyn.demo.derby.feature"
       label="Ibatis Derby Demo Feature"
-      version="0.9.5.v20100521"
+      version="0.9.7.v20110401"
       provider-name="Maarten Meijer &amp; Industrial TSI">
 
    <description url="http://marketplace.eclipse.org/content/industrial-sql-connector-mylyn">
@@ -19,7 +19,7 @@
 &lt;body lang=&quot;EN-US&quot;&gt;
 &lt;h2&gt;About This Content&lt;/h2&gt;
  
-&lt;p&gt;September 18, 2008&lt;/p&gt;	
+&lt;p&gt;September 18, 2008&lt;/p&gt; 
 &lt;h3&gt;Copyright&lt;/h3&gt;
 
 &lt;p&gt;Industrial TSI and Maarten Meijer retain all copyright and other intellectual property rights.&lt;/p&gt;
@@ -38,7 +38,7 @@
 &lt;body lang=&quot;EN-US&quot;&gt;
 &lt;h2&gt;About This Content&lt;/h2&gt;
  
-&lt;p&gt;September 18, 2008&lt;/p&gt;	
+&lt;p&gt;September 18, 2008&lt;/p&gt; 
 &lt;h3&gt;License&lt;/h3&gt;
 
 &lt;p&gt;&lt;em&gt;Industrial TSI&lt;/em&gt; and &lt;em&gt;Maarten Meijer&lt;/em&gt; make available all content in this plug-in (&amp;quot;Content&amp;quot;).  
@@ -72,7 +72,7 @@ and such source code may be obtained at &lt;a href=&quot;/&quot;&gt;http://www.i
          id="com.industrialtsi.mylyn.demo.derby"
          download-size="0"
          install-size="2701"
-         version="0.9.5.v20091008"
+         version="0.9.7.v20110401"
          fragment="true"
          unpack="false"/>
 

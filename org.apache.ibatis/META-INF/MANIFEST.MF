@@ -10,7 +10,6 @@ Bundle-ClassPath: ibatis-2.3.0.677.jar,
  lib/commons-logging-1.0.4.jar,
  lib/commons-logging-api-1.0.4.jar
 Eclipse-BuddyPolicy: registered
-Require-Bundle: org.eclipse.core.runtime;bundle-version="3.4.0"
 Export-Package: com.ibatis.common.beans,
  com.ibatis.common.io,
  com.ibatis.common.jdbc,
