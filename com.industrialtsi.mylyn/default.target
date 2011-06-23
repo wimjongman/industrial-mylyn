@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.6"?>
+
+<target includeMode="feature" name="Mylyn from Helios (no JPA)" sequenceNumber="14">
+<locations>
+<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.mylyn.java_feature.feature.group" version="3.4.3.v20110131-0100-e3x-7D7F-AkF7B77V7c37B775eMp"/>
+<unit id="org.eclipse.mylyn.pde_feature.feature.group" version="3.4.3.v20110131-0100-e3x-43-7w31211719012110f4y"/>
+<unit id="org.eclipse.mylyn.team_feature.feature.group" version="3.4.3.v20110131-0200-e3x-4327w31221242012110f4y"/>
+<unit id="org.eclipse.mylyn.bugzilla_feature.feature.group" version="3.4.3.v20110131-0100-e3x-7D774BgJ9DI9YFV4CICE2KAv"/>
+<unit id="org.eclipse.mylyn_feature.feature.group" version="3.4.3.v20110131-0100-e3x-7Z7f7AFBBoPbVQ7iNFebXJDypa"/>
+<unit id="org.eclipse.mylyn.context_feature.feature.group" version="3.4.3.v20110131-0100-e3x-777728s73543D6D135332KAv"/>
+<unit id="org.eclipse.rcp.source.feature.group" version="3.6.2.r362_v20101104-9SAxFMKFkSAqi8axkv1ZjegmiBLY"/>
+<unit id="org.eclipse.pde.feature.group" version="3.6.2.r362_v20110203-7b7mFL2FET3dhHalh1iNZtL"/>
+<unit id="org.eclipse.jdt.feature.group" version="3.6.2.r362_v20101117-0800-7z8XFW6FLFlmjJcvz03jyeFBLS_F"/>
+<unit id="org.eclipse.wst.xml_ui.feature.feature.group" version="3.2.3.v201102160550-7H7AFUWDxumQJOi9ghcTb5YgkwEZ"/>
+<repository location="http://download.eclipse.org/releases/helios"/>
+</location>
+</locations>
+</target>
