@@ -2,6 +2,6 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Memory Persistor Fragment
 Bundle-SymbolicName: com.industrialtsi.mylyn.demo.memory;singleton:=true
-Bundle-Version: 0.9.6.v20100529
+Bundle-Version: 0.9.7.v20110401
 Fragment-Host: com.industrialtsi.mylyn.core;bundle-version="[0.8.1,1.0.0)"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

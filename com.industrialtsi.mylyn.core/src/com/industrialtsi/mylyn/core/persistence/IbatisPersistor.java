@@ -31,10 +31,10 @@ import com.industrialtsi.mylyn.core.dto.IndustrialTask;
 /**
  * <code>IbatisPersistor</code> : uses the old Ibatis interface that acts as
  * default connection mechanism.
- * 
+ *
  * @author Maarten Meijer
  * @author Ahmed Aadel
- * 
+ *
  * @since 0.8.0
  */
 public class IbatisPersistor extends PersistorAdapter {

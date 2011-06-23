@@ -56,11 +56,6 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>net.sf.eclipsecs.core.CheckstyleBuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
 			<name>InCode.inCodeBuilder</name>
 			<arguments>
 			</arguments>
@@ -71,7 +66,6 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.api.tools.apiAnalysisNature</nature>
 		<nature>com.nwire.studio.tools.nwireNature</nature>
-		<nature>net.sf.eclipsecs.core.CheckstyleNature</nature>
 		<nature>InCode.inCodeNature</nature>
 	</natures>
 </projectDescription>
