@@ -1,47 +1,60 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.industrialtsi.mylyn</groupId>
-  <artifactId>com.industrialtsi.mylyn.maven</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <name>com.industrialtsi.mylyn.maven</name>
-  <properties>
-    <tycho.version>0.11.1</tycho.version>
-  </properties>
-  <description>Maven Build project for Industrial SQL Connector</description>
-  <modules>
-<!--
-    <module>com.industrialtsi.mylyn.demo.jpa</module>
-    <module>com.industrialtsi.mylyn.demo.jpa.feature</module>
-    <module>com.industrialtsi.mylyn.site</module>
-    <module>com.industrialtsi.mylyn.tests</module>
-    <module>com.industrialtsi.mylyn.twitter</module>
--->
-	<module>../com.industrialtsi.mylyn.demo.derby</module>
-    <module>../com.industrialtsi.mylyn.demo.derby.feature</module>
-	<module>../com.industrialtsi.mylyn.demo.memory</module>
-    <module>../com.industrialtsi.mylyn.feature</module>
-    <module>../com.industrialtsi.mylyn.core</module>
-    <module>../com.industrialtsi.mylyn.ui</module>
-    <module>../org.apache.ibatis</module>
-    <module>../org.apache.ibatis.feature</module>
-  </modules>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.sonatype.tycho</groupId>
-        <artifactId>tycho-maven-plugin</artifactId>
-        <version>${tycho.version}</version>
-        <extensions>true</extensions>
-      </plugin>
-    <plugin>
-        <groupId>org.sonatype.tycho</groupId>
-        <artifactId>tycho-packaging-plugin</artifactId>
-        <version>${tycho.version}</version>
-        <configuration>
-          <deployableFeature>true</deployableFeature>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.industrialtsi.mylyn</groupId>
+	<artifactId>com.industrialtsi.mylyn.maven</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>com.industrialtsi.mylyn.maven</name>
+	<properties>
+		<tycho-version>0.11.1</tycho-version>
+	</properties>
+	<description>Maven Build project for Industrial SQL Connector</description>
+	<modules>
+		<!-- <module>com.industrialtsi.mylyn.demo.jpa</module> <module>com.industrialtsi.mylyn.demo.jpa.feature</module>
+			<module>com.industrialtsi.mylyn.site</module> <module>com.industrialtsi.mylyn.tests</module>
+			<module>com.industrialtsi.mylyn.twitter</module> -->
+		<module>../com.industrialtsi.mylyn.demo.derby</module>
+		<module>../com.industrialtsi.mylyn.demo.derby.feature</module>
+		<module>../com.industrialtsi.mylyn.demo.memory</module>
+		<module>../com.industrialtsi.mylyn.feature</module>
+		<module>../com.industrialtsi.mylyn.core</module>
+		<module>../com.industrialtsi.mylyn.ui</module>
+		<module>../org.apache.ibatis</module>
+		<module>../org.apache.ibatis.feature</module>
+	</modules>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.sonatype.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<deployableFeature>true</deployableFeature>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+	<scm>
+		<url>http://svn.codespot.com/a/eclipselabs.org/industrial-mylyn/trunk/</url>
+	</scm>
+	<issueManagement>
+		<url>http://code.google.com/a/eclipselabs.org/p/industrial-mylyn/issues/list</url>
+	</issueManagement>
 </project>
