@@ -8,18 +8,19 @@
  * Contributors:
  *     Maarten Meijer - initial API and implementation
  *     Industrial TSI - improvements
- *******************************************************************************/package org.eclipse.mylyn.sql.demo.derby.test;
+ *******************************************************************************/
+package com.industrialtsi.mylyn.demo.derby.test;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
+
+import com.ibatis.sqlmap.client.SqlMapClient;
 import com.industrialtsi.mylyn.core.IndustrialCore;
 import com.industrialtsi.mylyn.core.dto.IndustrialQueryParams;
 import com.industrialtsi.mylyn.test.db.IbatisTest;
-
-import com.ibatis.sqlmap.client.SqlMapClient;
 
 /**
  * run this with -DIBATIS_REPOSITORY_URL=jdbc:derby:/Users/maarten/Desktop/tasks/mylynDB
@@ -51,10 +52,9 @@ public class DemoDerbyTest extends IbatisTest {
 		try {
 			tasksMap = IndustrialCore.getDefault().getTaskSqlMapConfig(repository);
 		// FIXME add all remaining search parameters
-		results = tasksMap.queryForList("Repository.validate", null);	
+			results = tasksMap.queryForList("Repository.validate", null);
 		assertEquals("Table inited", 0, results.get(0));
-		
-			
+
 		results = tasksMap.queryForList("Repository.legalOwners", null);
 		options.setOwner(results.toArray(new String[0]));
 

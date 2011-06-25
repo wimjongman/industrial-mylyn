@@ -2,13 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Industrial Connector for Mylyn 3.0.x Tests
 Bundle-SymbolicName: com.industrialtsi.mylyn.tests;singleton:=true
-Bundle-Version: 0.9.0.v20090617
+Bundle-Version: 0.9.8
 Bundle-Vendor: Industrial TSI, Maarten Meijer
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.3.0,4.0.0)",
  org.eclipse.mylyn.tasks.core;bundle-version="[3.0.0,4.0.0)",
  org.apache.ibatis;bundle-version="2.3.0",
- com.industrialtsi.mylyn.core;bundle-version="[0.9.5,1.0.0)",
+ com.industrialtsi.mylyn.core;bundle-version="[0.9.8,1.0.0)",
  org.junit4;bundle-version="[4.3.1,5.0.0)",
  org.eclipse.mylyn.commons.net;bundle-version="[3.0.0,4.0.0)",
  org.eclipse.mylyn.tasks.ui;bundle-version="[3.3.0,4.0.0)"

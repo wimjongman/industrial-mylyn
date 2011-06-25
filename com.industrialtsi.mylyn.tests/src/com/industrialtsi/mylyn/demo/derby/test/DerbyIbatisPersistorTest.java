@@ -9,11 +9,12 @@
  *     Maarten Meijer - initial API and implementation
  *******************************************************************************/
 
-package org.eclipse.mylyn.sql.demo.derby.test;
+package com.industrialtsi.mylyn.demo.derby.test;
 
 import java.sql.SQLException;
 
 import org.eclipse.core.runtime.CoreException;
+
 import com.industrialtsi.mylyn.core.persistence.DerbyIbatisPersistor;
 import com.industrialtsi.mylyn.core.persistence.IPersistor;
 import com.industrialtsi.mylyn.core.persistence.IbatisPersistorTest;
@@ -47,6 +48,7 @@ public class DerbyIbatisPersistorTest extends IbatisPersistorTest {
 	 * {@link com.industrialtsi.mylyn.core.persistence.IbatisPersistor#canInitialize(org.eclipse.mylyn.tasks.core.TaskRepository)}
 	 * .
 	 */
+	@Override
 	public void testCanInitialize() {
 		IPersistor persistor = createPersistor();
 
@@ -67,6 +69,7 @@ public class DerbyIbatisPersistorTest extends IbatisPersistorTest {
 	 * {@link com.industrialtsi.mylyn.core.persistence.IbatisPersistor#initialize(org.eclipse.mylyn.tasks.core.TaskRepository)}
 	 * .
 	 */
+	@Override
 	public void testInitialize() {
 		IPersistor persistor = createPersistor();
 

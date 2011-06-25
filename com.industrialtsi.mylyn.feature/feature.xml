@@ -2,7 +2,7 @@
 <feature
       id="com.industrialtsi.mylyn.feature"
       label="Industrial Connector for Mylyn"
-      version="0.9.7.v20110401"
+      version="0.9.8"
       provider-name="Industrial TSI, Maarten Meijer">
 
    <description url="http://marketplace.eclipse.org/content/industrial-sql-connector-mylyn">
@@ -96,21 +96,21 @@ and such source code may be obtained at &lt;a href=&quot;/&quot;&gt;http://www.i
          id="com.industrialtsi.mylyn.core"
          download-size="0"
          install-size="69"
-         version="0.9.7.v20110401"
+         version="0.9.8"
          unpack="false"/>
 
    <plugin
          id="com.industrialtsi.mylyn.ui"
          download-size="0"
          install-size="49"
-         version="0.9.7.v20110401"
+         version="0.9.8"
          unpack="false"/>
 
    <plugin
          id="com.industrialtsi.mylyn.demo.memory"
          download-size="0"
          install-size="5"
-         version="0.9.7.v20110401"
+         version="0.9.8"
          fragment="true"
          unpack="false"/>
 

@@ -8,18 +8,20 @@
 	<name>com.industrialtsi.mylyn.maven</name>
 	<properties>
 		<tycho-version>0.12.0</tycho-version>
+		<industrial-version>0.9.8</industrial-version>
 	</properties>
 	<description>Maven Build project for Industrial SQL Connector</description>
 	<modules>
 		<!-- <module>com.industrialtsi.mylyn.demo.jpa</module> <module>com.industrialtsi.mylyn.demo.jpa.feature</module>
-			<module>com.industrialtsi.mylyn.site</module> <module>com.industrialtsi.mylyn.tests</module>
 			<module>com.industrialtsi.mylyn.twitter</module> -->
+		<module>../com.industrialtsi.mylyn.site</module>
 		<module>../com.industrialtsi.mylyn.demo.derby</module>
 		<module>../com.industrialtsi.mylyn.demo.derby.feature</module>
 		<module>../com.industrialtsi.mylyn.demo.memory</module>
 		<module>../com.industrialtsi.mylyn.feature</module>
 		<module>../com.industrialtsi.mylyn.core</module>
 		<module>../com.industrialtsi.mylyn.ui</module>
+
 		<module>../org.apache.ibatis</module>
 		<module>../org.apache.ibatis.feature</module>
 	</modules>
