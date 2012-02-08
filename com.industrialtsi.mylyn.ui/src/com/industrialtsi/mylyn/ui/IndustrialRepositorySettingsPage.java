@@ -28,9 +28,9 @@ import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Widget;
+import org.eclipse.ui.PlatformUI;
 
 import com.industrialtsi.mylyn.core.IndustrialCore;
 import com.industrialtsi.mylyn.core.persistence.PersistorsManager;
@@ -115,7 +115,7 @@ public class IndustrialRepositorySettingsPage extends
 				if (!inited
 						&& IndustrialCore.getDefault()
 								.canInitialize(repository)) {
-					Display.getDefault().syncExec(new Runnable() {
+					PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
 						public void run() {
 							if (MessageDialog
 									.openQuestion(
@@ -153,7 +153,7 @@ public class IndustrialRepositorySettingsPage extends
 				IndustrialCore.getDefault().getConnector()
 						.updateRepositoryConfiguration(repository, monitor);
 			} catch (final CoreException e) {
-				Display.getDefault().asyncExec(new Runnable() {
+				PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
 					public void run() {
 						ErrorDialog.openError(getShell(), "Validation Error", e //$NON-NLS-1$
 								.getMessage(), e.getStatus());
