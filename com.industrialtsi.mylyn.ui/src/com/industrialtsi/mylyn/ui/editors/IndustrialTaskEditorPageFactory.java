@@ -17,7 +17,7 @@ import org.eclipse.mylyn.tasks.ui.editors.AbstractTaskEditorPageFactory;
 import org.eclipse.mylyn.tasks.ui.editors.TaskEditor;
 import org.eclipse.mylyn.tasks.ui.editors.TaskEditorInput;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.editor.IFormPage;
 
 import com.industrialtsi.mylyn.core.IndustrialCore;
@@ -30,7 +30,7 @@ public class IndustrialTaskEditorPageFactory extends AbstractTaskEditorPageFacto
 
 	private Image getPageImage(String name) {
 		if(null == registry) {
-			registry = new ImageRegistry(Display.getCurrent());
+			registry = new ImageRegistry(PlatformUI.getWorkbench().getDisplay());
 		}
 		if (null == registry.get(name)) {
 			ImageDescriptor image = IndustrialUI.imageDescriptorFromPlugin(IndustrialUI.PLUGIN_ID, name);

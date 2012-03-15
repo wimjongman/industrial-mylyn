@@ -236,7 +236,7 @@ public class IndustrialFormQueryPage extends AbstractRepositoryQueryPage {
 				if (repository != null) {
 					updateAttributesFromRepository(true);
 				} else {
-					MessageDialog.openInformation(Display.getCurrent().getActiveShell(), "Ibatis Error?",
+					MessageDialog.openInformation(PlatformUI.getWorkbench().getDisplay().getActiveShell(), "Ibatis Error?",
 							"Cannot Find Repository");
 				}
 			}
