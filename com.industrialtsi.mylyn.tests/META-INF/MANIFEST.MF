@@ -11,7 +11,8 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.3.0,4.0.0)",
  com.industrialtsi.mylyn.core;bundle-version="[0.9.8,1.0.0)",
  org.junit4;bundle-version="[4.3.1,5.0.0)",
  org.eclipse.mylyn.commons.net;bundle-version="[3.0.0,4.0.0)",
- org.eclipse.mylyn.tasks.ui;bundle-version="[3.3.0,4.0.0)"
+ org.eclipse.mylyn.tasks.ui;bundle-version="[3.3.0,4.0.0)",
+ org.eclipse.ant.core;bundle-version="3.2.201"
 Export-Package: com.industrialtsi.mylyn.core.persistence,
  com.industrialtsi.mylyn.test.db,
  com.industrialtsi.mylyn.test.db.core;uses:="org.eclipse.mylyn.tasks.core,junit.framework,com.industrialtsi.mylyn.core",

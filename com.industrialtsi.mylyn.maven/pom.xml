@@ -12,15 +12,19 @@
 	</properties>
 	<description>Maven Build project for Industrial SQL Connector</description>
 	<modules>
-		<!-- <module>com.industrialtsi.mylyn.demo.jpa</module> <module>com.industrialtsi.mylyn.demo.jpa.feature</module>
-			<module>com.industrialtsi.mylyn.twitter</module> -->
-		<module>../com.industrialtsi.mylyn.site</module>
-		<module>../com.industrialtsi.mylyn.demo.derby</module>
-		<module>../com.industrialtsi.mylyn.demo.derby.feature</module>
+		<!--
+			<module>com.industrialtsi.mylyn.twitter</module>
+		-->
 		<module>../com.industrialtsi.mylyn.demo.memory</module>
 		<module>../com.industrialtsi.mylyn.feature</module>
+		<module>../com.industrialtsi.mylyn.demo.derby</module>
+		<module>../com.industrialtsi.mylyn.demo.derby.feature</module>
 		<module>../com.industrialtsi.mylyn.core</module>
 		<module>../com.industrialtsi.mylyn.ui</module>
+
+		<module>../com.industrialtsi.mylyn.site</module>
+		<module>../com.industrialtsi.mylyn.demo.jpa</module>
+		<module>../com.industrialtsi.mylyn.demo.jpa.feature</module>
 
 		<module>../org.apache.ibatis</module>
 		<module>../org.apache.ibatis.feature</module>
@@ -39,6 +43,7 @@
 				<version>${tycho-version}</version>
 				<configuration>
 					<deployableFeature>true</deployableFeature>
+			        <archiveSite>true</archiveSite>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -53,10 +58,24 @@
 
 		</plugins>
 	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.6</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
 	<scm>
 		<url>http://svn.codespot.com/a/eclipselabs.org/industrial-mylyn/trunk/</url>
 	</scm>
 	<issueManagement>
 		<url>http://code.google.com/a/eclipselabs.org/p/industrial-mylyn/issues/list</url>
 	</issueManagement>
+	<ciManagement>
+		<url>http://quadbox.local:9090/</url>
+		<system>Hudson FOLD Systems</system>
+	</ciManagement>
 </project>

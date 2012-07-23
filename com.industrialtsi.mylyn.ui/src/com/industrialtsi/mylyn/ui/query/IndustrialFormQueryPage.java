@@ -302,7 +302,7 @@ public class IndustrialFormQueryPage extends AbstractRepositoryQueryPage {
 		control.setLayoutData(gd);
 		GridLayout layout = new GridLayout(1, false);
 		control.setLayout(layout);
-		
+
 
 		createTitleGroup(control);
 

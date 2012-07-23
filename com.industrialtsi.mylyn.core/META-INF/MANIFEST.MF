@@ -25,3 +25,4 @@ Export-Package: com.industrialtsi.mylyn.core;
  com.industrialtsi.mylyn.core.persistence;uses:="com.industrialtsi.mylyn.core.dto,org.eclipse.mylyn.tasks.core,com.ibatis.sqlmap.client"
 Bundle-ClassPath: .
 Eclipse-RegisterBuddy: org.apache.ibatis
+Eclipse-ExtensibleAPI: true
