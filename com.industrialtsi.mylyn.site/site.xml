@@ -3,34 +3,20 @@
    <feature url="features/org.apache.ibatis.feature_2.3.0.jar" id="org.apache.ibatis.feature" version="2.3.0">
       <category name="Industrial Connector dependencies"/>
    </feature>
-<!--
-   <feature url="features/com.industrialtsi.mylyn.feature_0.9.5.v20100521.jar" id="com.industrialtsi.mylyn.feature" version="0.9.5.v20100521">
-      <category name="Industrial Connector Base"/>
-   </feature>
-   <feature url="features/com.industrialtsi.mylyn.demo.jpa.feature_0.9.5.v20100521.jar" id="com.industrialtsi.mylyn.demo.jpa.feature" version="0.9.5.v20100521">
-      <category name="Example JPA based connector fragment"/>
-   </feature>
-   <feature url="features/com.industrialtsi.mylyn.demo.derby.feature_0.9.5.v20100521.jar" id="com.industrialtsi.mylyn.demo.derby.feature" version="0.9.5.v20100521">
-      <category name="Example Ibatis based connector fragment"/>
-   </feature>
-   <feature url="features/com.industrialtsi.mylyn.feature_0.9.6.v20100529.jar" id="com.industrialtsi.mylyn.feature" version="0.9.6.v20100529">
-      <category name="Industrial Connector Base"/>
-   </feature>
-   <feature url="features/org.eclipse.mylyn.industrial.dev_3.3.0.201005291712.jar" id="org.eclipse.mylyn.industrial.dev" version="3.3.0.201005291712">
-      <category name="Mylyn Development Tools"/>
-   </feature>
-   <feature url="features/com.industrialtsi.mylyn.feature_0.9.7.v20110401.jar" id="com.industrialtsi.mylyn.feature" version="0.9.7.v20110401">
-      <category name="Industrial Connector Base"/>
-   </feature>
-   <feature url="features/com.industrialtsi.mylyn.demo.derby.feature_0.9.7.v20110401.jar" id="com.industrialtsi.mylyn.demo.derby.feature" version="0.9.7.v20110401">
-      <category name="Example Ibatis based connector fragment"/>
-   </feature>
--->
    <feature url="features/com.industrialtsi.mylyn.feature_0.9.8.jar" id="com.industrialtsi.mylyn.feature" version="0.9.8">
       <category name="Industrial Connector Base"/>
    </feature>
    <feature url="features/com.industrialtsi.mylyn.demo.derby.feature_0.9.8.jar" id="com.industrialtsi.mylyn.demo.derby.feature" version="0.9.8">
       <category name="Example Ibatis based connector fragment"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.demo.derby.feature_0.9.9.jar" id="com.industrialtsi.mylyn.demo.derby.feature" version="0.9.9">
+      <category name="Example Ibatis based connector fragment"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.demo.jpa.feature_0.9.9.jar" id="com.industrialtsi.mylyn.demo.jpa.feature" version="0.9.9">
+      <category name="Example JPA based connector fragment"/>
+   </feature>
+   <feature url="features/com.industrialtsi.mylyn.feature_0.9.9.jar" id="com.industrialtsi.mylyn.feature" version="0.9.9">
+      <category name="Industrial Connector Base"/>
    </feature>
    <category-def name="Industrial Connector Base" label="Industrial Connector Base">
       <description>
