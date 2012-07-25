@@ -15,7 +15,7 @@
 <stringAttribute key="location" value="/Users/maarten/Workspaces/runtime-industrial"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -console -tasktopdev"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-ea&#13;-Xdock:icon=../Resources/Eclipse.icns&#13;-Xdock:name=&quot;Eclipse 341 Test&quot;&#13;-XstartOnFirstThread&#13;-Xms512m&#13;-Xmx512m&#13;-XX:MaxPermSize=512m&#13;-Dosgi.requiredJavaVersion=1.5&#13;-Dorg.eclipse.swt.internal.carbon.smallFonts"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-ea&#13;-Xms512m&#13;-Xmx512m&#13;-XX:MaxPermSize=512m&#13;-Dosgi.requiredJavaVersion=1.5&#13;-Dorg.eclipse.swt.internal.carbon.smallFonts&#10;-Xdock:name=&quot;Industrial Juno Test&quot;"/>
 <stringAttribute key="pde.version" value="3.3"/>
 <stringAttribute key="product" value="org.eclipse.platform.ide"/>
 <booleanAttribute key="restart" value="false"/>

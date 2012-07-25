@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Industrial Connector for Mylyn 3.0.x Core
 Bundle-SymbolicName: com.industrialtsi.mylyn.core;singleton:=true
-Bundle-Version: 0.9.8
+Bundle-Version: 0.9.9
 Bundle-Activator: com.industrialtsi.mylyn.core.IndustrialCore
 Bundle-Vendor: Industrial TSI, Maarten Meijer
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.4.0,4.0.0)",

@@ -21,7 +21,6 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
-import org.eclipse.mylyn.internal.provisional.commons.ui.DatePicker;
 import org.eclipse.mylyn.tasks.core.IRepositoryQuery;
 import org.eclipse.mylyn.tasks.core.TaskRepository;
 import org.eclipse.mylyn.tasks.ui.wizards.AbstractRepositoryQueryPage;
@@ -35,7 +34,6 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Text;
@@ -86,17 +84,17 @@ public class IndustrialFormQueryPage extends AbstractRepositoryQueryPage {
 
 	private List statusList;
 
-	private DatePicker createdBeforePicker;
+	private TemporaryIndustrialDatePicker createdBeforePicker;
 
-	private DatePicker createdAfterPicker;
+	private TemporaryIndustrialDatePicker createdAfterPicker;
 
-	private DatePicker completedBeforePicker;
+	private TemporaryIndustrialDatePicker completedBeforePicker;
 
-	private DatePicker completedAfterPicker;
+	private TemporaryIndustrialDatePicker completedAfterPicker;
 
-	private DatePicker dueBeforePicker;
+	private TemporaryIndustrialDatePicker dueBeforePicker;
 
-	private DatePicker dueAfterPicker;
+	private TemporaryIndustrialDatePicker dueAfterPicker;
 
 	/**
 	 * Return a set of strings joined into a single string separated by
@@ -342,38 +340,38 @@ public class IndustrialFormQueryPage extends AbstractRepositoryQueryPage {
 		createdBeforeLabel.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false));
 		createdBeforeLabel.setText("Creation Date before:");
 
-		createdBeforePicker = new DatePicker(datesComposite, SWT.BORDER, EMPTY_STRING, false, 0);
+		createdBeforePicker = new TemporaryIndustrialDatePicker(datesComposite, SWT.BORDER, EMPTY_STRING, false, 0);
 		createdBeforePicker.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
 		final Label label = new Label(datesComposite, SWT.NONE);
 		label.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false));
 		label.setText("After:");
 
-		createdAfterPicker = new DatePicker(datesComposite, SWT.BORDER, EMPTY_STRING, false, 0);
+		createdAfterPicker = new TemporaryIndustrialDatePicker(datesComposite, SWT.BORDER, EMPTY_STRING, false, 0);
 		createdAfterPicker.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
 		final Label completionDateBeforeLabel = new Label(datesComposite, SWT.NONE);
 		completionDateBeforeLabel.setText("Completion Date before:");
 
-		completedBeforePicker = new DatePicker(datesComposite, SWT.BORDER, EMPTY_STRING, false, 0);
+		completedBeforePicker = new TemporaryIndustrialDatePicker(datesComposite, SWT.BORDER, EMPTY_STRING, false, 0);
 		completedBeforePicker.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
 
 		final Label afterLabel_1 = new Label(datesComposite, SWT.NONE);
 		afterLabel_1.setText("After:");
 
-		completedAfterPicker = new DatePicker(datesComposite, SWT.BORDER, EMPTY_STRING, false, 0);
+		completedAfterPicker = new TemporaryIndustrialDatePicker(datesComposite, SWT.BORDER, EMPTY_STRING, false, 0);
 		completedAfterPicker.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
 
 		final Label dueDateBeforeLabel = new Label(datesComposite, SWT.NONE);
 		dueDateBeforeLabel.setText("Due Date before:");
 
-		dueBeforePicker = new DatePicker(datesComposite, SWT.BORDER, EMPTY_STRING, false, 0);
+		dueBeforePicker = new TemporaryIndustrialDatePicker(datesComposite, SWT.BORDER, EMPTY_STRING, false, 0);
 		dueBeforePicker.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
 
 		final Label afterLabel = new Label(datesComposite, SWT.NONE);
 		afterLabel.setText("After:");
 
-		dueAfterPicker = new DatePicker(datesComposite, SWT.BORDER, EMPTY_STRING, false, 0);
+		dueAfterPicker = new TemporaryIndustrialDatePicker(datesComposite, SWT.BORDER, EMPTY_STRING, false, 0);
 		dueAfterPicker.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
 
 	}
@@ -535,7 +533,7 @@ public class IndustrialFormQueryPage extends AbstractRepositoryQueryPage {
 	}
 
 	@SuppressWarnings("restriction")
-	private String getCriterium(DatePicker picker, String fieldName) {
+	private String getCriterium(TemporaryIndustrialDatePicker picker, String fieldName) {
 		if (null != picker.getDate()) {
 			return fieldName + Long.toString(picker.getDate().getTimeInMillis());
 		}

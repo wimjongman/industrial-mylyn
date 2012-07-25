@@ -2,7 +2,7 @@
 <feature
       id="com.industrialtsi.mylyn.demo.jpa.feature"
       label="JPA Derby Demo Feature"
-      version="0.9.8"
+      version="0.9.9"
       provider-name="Industrial TSI, Maarten Meijer">
 
    <description url="http://www.example.com/description">
@@ -64,16 +64,17 @@ and such source code may be obtained at &lt;a href=&quot;/&quot;&gt;http://www.i
    </url>
 
    <requires>
-      <import plugin="org.eclipse.persistence.jpa" version="1.0.1" match="greaterOrEqual"/>
-      <import plugin="javax.persistence" version="1.99.0" match="greaterOrEqual"/>
       <import plugin="com.industrialtsi.mylyn.core" version="0.9.1.v20090817" match="compatible"/>
+      <import plugin="org.eclipse.persistence.jpa" version="2.3.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.persistence.jpa.osgi" version="2.3.2" match="greaterOrEqual"/>
+      <import plugin="javax.persistence" version="2.0.3" match="greaterOrEqual"/>
    </requires>
 
    <plugin
          id="com.industrialtsi.mylyn.demo.jpa"
          download-size="0"
          install-size="10906"
-         version="0.9.8"
+         version="0.9.9"
          fragment="true"
          unpack="false"/>
 

@@ -12,9 +12,7 @@
 	</properties>
 	<description>Maven Build project for Industrial SQL Connector</description>
 	<modules>
-		<!--
-			<module>com.industrialtsi.mylyn.twitter</module>
-		-->
+		<!-- <module>com.industrialtsi.mylyn.twitter</module> -->
 		<module>../com.industrialtsi.mylyn.demo.memory</module>
 		<module>../com.industrialtsi.mylyn.feature</module>
 		<module>../com.industrialtsi.mylyn.demo.derby</module>
@@ -43,8 +41,27 @@
 				<version>${tycho-version}</version>
 				<configuration>
 					<deployableFeature>true</deployableFeature>
-			        <archiveSite>true</archiveSite>
+					<archiveSite>true</archiveSite>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-director-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>materialize-products</id>
+						<goals>
+							<goal>materialize-products</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>archive-products</id>
+						<goals>
+							<goal>archive-products</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
@@ -55,7 +72,58 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
-
+<!--
+ 			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>com.industrialtsi.mylyn</groupId>
+							<artifactId>target-definition</artifactId>
+							<version>${industrial-version}</version>
+							<classifier>indigo</classifier>
+						</artifact>
+					</target>
+					<environments>
+						<environment>
+							<os>${build.os}</os>
+							<ws>${build.ws}</ws>
+							<arch>${build.arch}</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.3</version>
+				<executions>
+					<execution>
+						<id>attach-artifacts</id>
+						<phase>package</phase>
+						<goals>
+							<goal>attach-artifact</goal>
+						</goals>
+						<configuration>
+							<artifacts>
+								<artifact>
+									<file>juno.target</file>
+									<type>target</type>
+									<classifier>juno</classifier>
+								</artifact>
+								<artifact>
+									<file>indigo.target</file>
+									<type>target</type>
+									<classifier>indigo</classifier>
+								</artifact>
+							</artifacts>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+ -->
 		</plugins>
 	</build>
 	<reporting>

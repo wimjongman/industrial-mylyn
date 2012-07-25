@@ -2,7 +2,7 @@
 <feature
       id="com.industrialtsi.mylyn.feature"
       label="Industrial Connector for Mylyn"
-      version="0.9.8"
+      version="0.9.9"
       provider-name="Industrial TSI, Maarten Meijer">
 
    <description url="http://marketplace.eclipse.org/content/industrial-sql-connector-mylyn">
@@ -83,34 +83,36 @@ and such source code may be obtained at &lt;a href=&quot;/&quot;&gt;http://www.i
    </url>
 
    <requires>
-      <import plugin="org.eclipse.core.runtime" version="3.3.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.mylyn.tasks.core" version="3.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.mylyn.tasks.ui" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime" version="3.4.0" match="compatible"/>
+      <import plugin="org.eclipse.mylyn.tasks.core" version="3.4.0" match="compatible"/>
+      <import plugin="org.eclipse.mylyn.commons.net" version="3.4.0" match="compatible"/>
       <import plugin="org.eclipse.ui" version="3.3.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.forms" version="3.3.100" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.mylyn.commons.net" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.mylyn.tasks.core" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.mylyn.tasks.ui" version="3.8.0" match="equivalent"/>
       <import plugin="org.eclipse.mylyn.commons.ui" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.mylyn.commons.workbench" version="3.8.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
          id="com.industrialtsi.mylyn.core"
          download-size="0"
          install-size="69"
-         version="0.9.8"
+         version="0.9.9"
          unpack="false"/>
 
    <plugin
          id="com.industrialtsi.mylyn.ui"
          download-size="0"
          install-size="49"
-         version="0.9.8"
+         version="0.9.9"
          unpack="false"/>
 
    <plugin
          id="com.industrialtsi.mylyn.demo.memory"
          download-size="0"
          install-size="5"
-         version="0.9.8"
+         version="0.9.9"
          fragment="true"
          unpack="false"/>
 
