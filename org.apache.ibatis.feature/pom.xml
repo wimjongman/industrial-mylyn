@@ -3,12 +3,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>com.industrialtsi.mylyn.maven</artifactId>
-    <groupId>com.industrialtsi.mylyn</groupId>
-    <version>0.0.1-SNAPSHOT</version>
-    <relativePath>../com.industrialtsi.mylyn.maven</relativePath>
+    <groupId>com.remainsoftware.tdoms</groupId>
+    <artifactId>tdoms.parent</artifactId>
+	<relativePath>../com.remainsoftware.tdoms.parent</relativePath>
+    <version>6.4.0-SNAPSHOT</version>
   </parent>
-  <groupId>com.industrialtsi.mylyn</groupId>
+  <groupId>com.remainsoftware.tdoms</groupId>
   <artifactId>org.apache.ibatis.feature</artifactId>
   <version>2.3.0</version>
   <packaging>eclipse-feature</packaging>
