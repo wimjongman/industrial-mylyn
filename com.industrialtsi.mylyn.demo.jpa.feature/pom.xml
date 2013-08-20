@@ -5,11 +5,11 @@
   <parent>
     <artifactId>com.industrialtsi.mylyn.maven</artifactId>
     <groupId>com.industrialtsi.mylyn</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.9.10-SNAPSHOT</version>
     <relativePath>../com.industrialtsi.mylyn.maven</relativePath>
   </parent>
   <groupId>com.industrialtsi.mylyn</groupId>
   <artifactId>com.industrialtsi.mylyn.demo.jpa.feature</artifactId>
-  <version>0.9.8</version>
+  <version>0.9.10</version>
   <packaging>eclipse-feature</packaging>
 </project>

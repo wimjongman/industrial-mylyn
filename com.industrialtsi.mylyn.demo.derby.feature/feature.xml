@@ -2,7 +2,7 @@
 <feature
       id="com.industrialtsi.mylyn.demo.derby.feature"
       label="Ibatis Derby Demo Feature"
-      version="0.9.9"
+      version="0.9.10"
       provider-name="Maarten Meijer &amp; Industrial TSI">
 
    <description url="http://marketplace.eclipse.org/content/industrial-sql-connector-mylyn">
@@ -72,7 +72,7 @@ and such source code may be obtained at &lt;a href=&quot;/&quot;&gt;http://www.i
          id="com.industrialtsi.mylyn.demo.derby"
          download-size="0"
          install-size="2701"
-         version="0.9.9"
+         version="0.9.10"
          fragment="true"
          unpack="false"/>
 

@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Industrial Connector for Mylyn 3.0.x Demo Derby Fragment
 Bundle-SymbolicName: com.industrialtsi.mylyn.demo.derby;singleton:=true
-Bundle-Version: 0.9.9
+Bundle-Version: 0.9.10
 Bundle-Vendor: Industrial TSI, Maarten Meijer
-Fragment-Host: com.industrialtsi.mylyn.core;bundle-version="[0.9.5,1.0.0)"
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Fragment-Host: com.industrialtsi.mylyn.core;bundle-version="[0.9.10,1.0.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ClassPath: lib/derbyclient.jar,
  lib/derby.jar,
  maps/,

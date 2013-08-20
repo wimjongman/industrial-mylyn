@@ -1,15 +1,35 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.industrialtsi.mylyn</groupId>
 	<artifactId>com.industrialtsi.mylyn.maven</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.9.10-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>com.industrialtsi.mylyn.maven</name>
 	<properties>
-		<tycho-version>0.12.0</tycho-version>
-		<industrial-version>0.9.8</industrial-version>
+		<tycho-version>0.16.0</tycho-version>
+	    <tycho-extras.version>0.16.0</tycho-extras.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<industrial-version>0.9.10</industrial-version>
 	</properties>
+	<repositories>
+		<repository>
+			<id>kepler</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/kepler/</url>
+		</repository>
+		<repository>
+			<id>mylyn-releases</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/mylyn/releases/latest/</url>
+		</repository>
+		<repository>
+			<id>eclipselink-releases</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/rt/eclipselink/updates/</url>
+		</repository>
+	</repositories>
 	<description>Maven Build project for Industrial SQL Connector</description>
 	<modules>
 		<!-- <module>com.industrialtsi.mylyn.twitter</module> -->
@@ -26,9 +46,28 @@
 
 		<module>../org.apache.ibatis</module>
 		<module>../org.apache.ibatis.feature</module>
-	</modules>
+    
+  </modules>
 	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<outputDirectory>target/classes</outputDirectory>
+		<testSourceDirectory>src</testSourceDirectory>
+		<testOutputDirectory>target/test-classes</testOutputDirectory>
 		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<useUIHarness>false</useUIHarness>
+					<includes>
+						<include>**/*Test.java</include>
+					</includes>
+					<!-- Kill test JVM if tests take more than 10 minutes (600 seconds) 
+						to finish -->
+					<forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
@@ -40,10 +79,32 @@
 				<artifactId>tycho-packaging-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
+					<strictBinIncludes>true</strictBinIncludes>
 					<deployableFeature>true</deployableFeature>
 					<archiveSite>true</archiveSite>
+					<!-- <archive> <addMavenDescriptor>false</addMavenDescriptor> </archive> -->
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-repository-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<includeAllDependencies>false</includeAllDependencies>
+					<createArtifactRepository>true</createArtifactRepository>
+					<compress>true</compress>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+<!--
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-director-plugin</artifactId>
@@ -63,16 +124,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-compiler-plugin</artifactId>
-				<version>${tycho-version}</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-<!--
  			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
@@ -126,7 +177,8 @@
  -->
 		</plugins>
 	</build>
-	<reporting>
+<!-- 
+ 	<reporting>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -135,6 +187,7 @@
 			</plugin>
 		</plugins>
 	</reporting>
+ -->
 
 	<scm>
 		<url>http://svn.codespot.com/a/eclipselabs.org/industrial-mylyn/trunk/</url>
@@ -143,7 +196,7 @@
 		<url>http://code.google.com/a/eclipselabs.org/p/industrial-mylyn/issues/list</url>
 	</issueManagement>
 	<ciManagement>
-		<url>http://quadbox.local:9090/</url>
+		<url>http://dev.fold1.com:9090/</url>
 		<system>Hudson FOLD Systems</system>
 	</ciManagement>
 </project>

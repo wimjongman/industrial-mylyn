@@ -2,18 +2,18 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Industrial Connector for Mylyn 3.0.x UI
 Bundle-SymbolicName: com.industrialtsi.mylyn.ui;singleton:=true
-Bundle-Version: 0.9.9
+Bundle-Version: 0.9.10
 Bundle-Activator: com.industrialtsi.mylyn.ui.IndustrialUI
 Bundle-Vendor: Industrial TSI, Maarten Meijer
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui,
- org.eclipse.ui.forms;bundle-version="3.3.100",
- org.eclipse.mylyn.tasks.core;bundle-version="[3.7.0,4.0.0)",
- org.eclipse.mylyn.tasks.ui;bundle-version="[3.7.0,4.0.0)",
- org.eclipse.mylyn.commons.ui;bundle-version="[3.8.0,4.0.0)",
- com.industrialtsi.mylyn.core;bundle-version="0.9.9",
- org.apache.ibatis;bundle-version="2.3.0";resolution:=optional,
- org.eclipse.mylyn.commons.workbench;bundle-version="[3.8.0,4.0.0)"
+ org.eclipse.ui.forms,
+ org.eclipse.mylyn.tasks.core;bundle-version="3.9.0",
+ org.eclipse.mylyn.tasks.ui;bundle-version="3.9.0",
+ org.eclipse.mylyn.commons.ui;bundle-version="3.9.0",
+ org.eclipse.mylyn.commons.workbench;bundle-version="3.9.0",
+ com.industrialtsi.mylyn.core;bundle-version="0.9.10",
+ org.apache.ibatis;bundle-version="2.3.0";resolution:=optional
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Import-Package: com.industrialtsi.mylyn.core
