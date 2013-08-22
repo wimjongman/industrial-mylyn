@@ -1,0 +1,50 @@
+<project name="clean-repository" basedir=".">
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: init                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="init">
+            
+    </target>
+	
+	
+	<!-- ================================= 
+          target: clean-repository              
+         ================================= -->
+    <target name="clean-repository" depends="init" description="remove unused artifacts from update site">
+        <p2.remove.iu>
+        	<destination location="file:${basedir}"/>
+        	<iu id="com.industrialtsi.mylyn.core" version="0.9.5.v20100521"/>
+        	<iu id="com.industrialtsi.mylyn.core" version="0.9.6.v20100529"/>
+        	<iu id="com.industrialtsi.mylyn.core" version="0.9.7.v20110401"/>
+        	<iu id="com.industrialtsi.mylyn.demo.derby" version="0.9.5.v20091008"/>
+        	<iu id="com.industrialtsi.mylyn.demo.derby" version="0.9.7.v20110401"/>
+        	<iu id="com.industrialtsi.mylyn.demo.derby.feature.feature.group" version="0.9.5.v20100521"/>
+        	<iu id="com.industrialtsi.mylyn.demo.derby.feature.feature.group" version="0.9.7.v20110401"/>
+        	<iu id="com.industrialtsi.mylyn.demo.derby.feature.feature.jar" version="0.9.5.v20100521"/>
+        	<iu id="com.industrialtsi.mylyn.demo.derby.feature.feature.jar" version="0.9.7.v20110401"/>
+        	<iu id="com.industrialtsi.mylyn.demo.jpa" version="0.9.5.v20100521"/>
+        	<iu id="com.industrialtsi.mylyn.demo.jpa.feature.feature.group" version="0.9.5.v20100521"/>
+        	<iu id="com.industrialtsi.mylyn.demo.jpa.feature.feature.jar" version="0.9.5.v20100521"/>
+        	<iu id="com.industrialtsi.mylyn.demo.memory" version="0.9.5.v20100521"/>
+        	<iu id="com.industrialtsi.mylyn.demo.memory" version="0.9.6.v20100529"/>
+        	<iu id="com.industrialtsi.mylyn.demo.memory" version="0.9.7.v20110401"/>
+        	<iu id="com.industrialtsi.mylyn.feature.feature.jar" version="0.9.5.v20100521"/>
+        	<iu id="com.industrialtsi.mylyn.feature.feature.jar" version="0.9.6.v20100529"/>
+        	<iu id="com.industrialtsi.mylyn.feature.feature.jar" version="0.9.7.v20110401"/>
+        	<iu id="com.industrialtsi.mylyn.twitter" version="0.9.5.v20100521"/>
+        	<iu id="com.industrialtsi.mylyn.twitter" version="0.9.6.v20100529"/>
+        	<iu id="com.industrialtsi.mylyn.twitter" version="0.9.7.v20110401"/>
+        	<iu id="com.industrialtsi.mylyn.ui" version="0.9.5.v20100521"/>
+        	<iu id="com.industrialtsi.mylyn.ui" version="0.9.6.v20100529"/>
+        	<iu id="com.industrialtsi.mylyn.ui" version="0.9.7.v20110401"/>
+        	<iu id="com.industrialtsi.mylyn.feature.feature.group" version="0.9.5.v20100521"/>
+        	<iu id="com.industrialtsi.mylyn.feature.feature.group" version="0.9.6.v20100529"/>
+        	<iu id="com.industrialtsi.mylyn.feature.feature.group" version="0.9.7.v20110401"/>
+        </p2.remove.iu>
+    </target>
+
+
+
+
+</project>
