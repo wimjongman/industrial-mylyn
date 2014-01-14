@@ -49,6 +49,7 @@
 		<module>../org.apache.ibatis</module>
 		<module>../org.apache.ibatis.feature</module>
 
+		<module>../com.industrialtsi.mylyn.site</module>
 	</modules>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
