@@ -1,37 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="Kepler+Mylyn+EclipseLink" sequenceNumber="11">
+<?pde version="3.8"?><target name="Kepler+Mylyn+EclipseLink" sequenceNumber="26">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.rcp.source.feature.group" version="4.3.0.v20130605-2000"/>
-<unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20130604-2047"/>
-<unit id="org.eclipse.sdk.ide" version="4.3.0.I20130605-2000"/>
-<unit id="org.eclipse.platform.sdk" version="4.3.0.I20130605-2000"/>
-<unit id="org.eclipse.rcp.feature.group" version="4.3.0.v20130605-2000"/>
-<unit id="org.eclipse.sdk.tests.feature.group" version="4.3.0.v20130606-0135"/>
+<unit id="org.eclipse.persistence.sdk.feature.group" version="2.4.2.v20130514-5956486"/>
+<repository location="http://download.eclipse.org/rt/eclipselink/updates/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.sdk.ide" version="4.3.1.M20130911-1000"/>
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20130828-0031"/>
+<unit id="org.eclipse.platform.ide" version="4.3.1.M20130911-1000"/>
+<unit id="org.eclipse.rcp.feature.group" version="4.3.1.v20130911-1000"/>
+<unit id="org.eclipse.pde.feature.group" version="3.9.1.v20130911-1000"/>
+<unit id="org.eclipse.cvs.feature.group" version="1.4.0.v20130911-1000"/>
+<unit id="org.eclipse.sdk.tests.feature.group" version="4.3.0.v20130911-1537"/>
+<unit id="org.eclipse.platform.sdk" version="4.3.1.M20130911-1000"/>
+<unit id="org.eclipse.jdt.source.feature.group" version="3.9.1.v20130911-1000"/>
+<unit id="org.eclipse.cvs.source.feature.group" version="1.4.0.v20130911-1000"/>
+<unit id="org.eclipse.rcp.source.feature.group" version="4.3.1.v20130911-1000"/>
+<unit id="org.eclipse.jdt.feature.group" version="3.9.1.v20130911-1000"/>
+<unit id="org.eclipse.pde.source.feature.group" version="3.9.1.v20130911-1000"/>
 <unit id="org.eclipse.test.feature.group" version="3.6.0.v20130424-0442"/>
 <repository location="http://download.eclipse.org/eclipse/updates/4.3"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.mylyn.commons.sdk.feature.group" version="3.9.0.v20130612-0100"/>
-<unit id="org.eclipse.mylyn.context_feature.feature.group" version="3.9.0.v20130612-0100"/>
-<unit id="org.eclipse.mylyn.commons.repositories.feature.group" version="1.1.0.v20130612-0100"/>
-<unit id="org.eclipse.mylyn.commons.repositories.http.feature.group" version="1.1.0.v20130612-0100"/>
-<unit id="org.eclipse.mylyn_feature.feature.group" version="3.9.0.v20130612-0100"/>
-<unit id="org.eclipse.mylyn.commons.compatibility.feature.group" version="3.9.0.v20130612-0100"/>
-<unit id="org.eclipse.mylyn.tasks.ide.feature.group" version="3.9.0.v20130612-0100"/>
-<unit id="org.eclipse.mylyn.commons.notifications.feature.group" version="1.1.0.v20130612-0100"/>
-<unit id="org.eclipse.mylyn.test_feature.feature.group" version="3.9.0.v20130612-0100"/>
-<unit id="org.eclipse.mylyn.commons.identity.feature.group" version="1.1.0.v20130612-0100"/>
-<unit id="org.eclipse.mylyn.commons.soap_feature.feature.group" version="3.9.0.v20130612-0100"/>
-<unit id="org.eclipse.mylyn.commons.feature.group" version="3.9.0.v20130612-0100"/>
-<unit id="org.eclipse.mylyn.bugzilla_feature.feature.group" version="3.9.0.v20130612-0100"/>
-<unit id="org.eclipse.mylyn.trac_feature.feature.group" version="3.9.0.v20130612-0100"/>
-<unit id="org.eclipse.mylyn.sdk_feature.feature.group" version="3.9.0.v20130612-0100"/>
-<repository location="http://download.eclipse.org/mylyn/releases/latest"/>
+<unit id="org.jdom" version="1.1.1.v201101151400"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.persistence.sdk.feature.group" version="2.4.2.v20130514-5956486"/>
-<repository location="http://download.eclipse.org/rt/eclipselink/updates/"/>
+<unit id="org.eclipse.mylyn.team_feature.feature.group" version="3.10.0.20130816-2152"/>
+<unit id="org.eclipse.mylyn.context_feature.feature.group" version="3.10.0.20131007-1529"/>
+<unit id="org.eclipse.mylyn.commons.soap_feature.feature.group" version="3.10.0.20130704-2116"/>
+<unit id="org.eclipse.mylyn.commons.feature.group" version="3.10.0.20131007-0130"/>
+<unit id="org.eclipse.mylyn.java_feature.feature.group" version="3.10.0.20131008-2202"/>
+<unit id="org.eclipse.mylyn.commons.compatibility.feature.group" version="3.10.0.20130621-1303"/>
+<unit id="org.eclipse.mylyn.commons.sdk.feature.group" version="3.10.0.20131018-1210"/>
+<unit id="org.eclipse.mylyn.commons.identity.feature.group" version="1.2.0.20130704-2116"/>
+<unit id="org.eclipse.mylyn.commons.repositories.http.feature.group" version="1.2.0.20130704-2116"/>
+<unit id="org.eclipse.mylyn.commons.notifications.feature.group" version="1.2.0.20131017-1131"/>
+<unit id="org.eclipse.mylyn.pde_feature.feature.group" version="3.10.0.20131008-0520"/>
+<unit id="org.eclipse.mylyn.commons.repositories.feature.group" version="1.2.0.20130704-2116"/>
+<unit id="org.eclipse.mylyn_feature.feature.group" version="3.10.0.20131010-2023"/>
+<repository location="http://download.eclipse.org/mylyn/releases/latest"/>
 </location>
 </locations>
 </target>

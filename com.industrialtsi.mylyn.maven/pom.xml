@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.industrialtsi.mylyn</groupId>
 	<artifactId>com.industrialtsi.mylyn.maven</artifactId>
@@ -7,8 +8,8 @@
 	<packaging>pom</packaging>
 	<name>com.industrialtsi.mylyn.maven</name>
 	<properties>
-		<tycho-version>0.16.0</tycho-version>
-	    <tycho-extras.version>0.16.0</tycho-extras.version>
+		<tycho-version>0.19.0</tycho-version>
+		<tycho-extras.version>0.19.0</tycho-extras.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<industrial-version>0.9.10</industrial-version>
@@ -40,14 +41,15 @@
 		<module>../com.industrialtsi.mylyn.core</module>
 		<module>../com.industrialtsi.mylyn.ui</module>
 
-		<module>../com.industrialtsi.mylyn.site</module>
+
+		
 		<module>../com.industrialtsi.mylyn.demo.jpa</module>
 		<module>../com.industrialtsi.mylyn.demo.jpa.feature</module>
 
 		<module>../org.apache.ibatis</module>
 		<module>../org.apache.ibatis.feature</module>
-    
-  </modules>
+
+	</modules>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<outputDirectory>target/classes</outputDirectory>
@@ -59,11 +61,29 @@
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
-					<useUIHarness>false</useUIHarness>
+					<!-- <argLine>${sonar.jacoco.agent} ${ui.test.vmargs} -Djava.util.logging.config.file=logging.properties</argLine>
+						<appArgLine>-data /Volumes/TeraDisk2/workspace-TestEulumdatTools</appArgLine> -->					<!-- -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -->
+					<useUIHarness>true</useUIHarness>
+					<useUIThread>true</useUIThread>
+					<product>org.eclipse.platform.ide</product>
+					<application>org.eclipse.ui.ide.workbench</application>
+					<dependencies>
+						<dependency>org.eclipse.mylyn.tasks.ui</dependency>
+						<dependency>
+							<type>eclipse-feature</type>
+							<artifactId>com.industrialtsi.mylyn.demo.derby.feature</artifactId>
+							<version>0.9.10</version>
+						</dependency>
+						<dependency>
+							<type>eclipse-feature</type>
+							<artifactId>com.industrialtsi.mylyn.demo.jpa.feature</artifactId>
+							<version>0.9.10</version>
+						</dependency>
+					</dependencies>
 					<includes>
 						<include>**/*Test.java</include>
 					</includes>
-					<!-- Kill test JVM if tests take more than 10 minutes (600 seconds) 
+					<!-- Kill test JVM if tests take more than 10 minutes (600 seconds)
 						to finish -->
 					<forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
 				</configuration>
@@ -104,90 +124,28 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
-<!--
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-p2-director-plugin</artifactId>
-				<version>${tycho-version}</version>
-				<executions>
-					<execution>
-						<id>materialize-products</id>
-						<goals>
-							<goal>materialize-products</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>archive-products</id>
-						<goals>
-							<goal>archive-products</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
- 			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<version>${tycho-version}</version>
-				<configuration>
-					<target>
-						<artifact>
-							<groupId>com.industrialtsi.mylyn</groupId>
-							<artifactId>target-definition</artifactId>
-							<version>${industrial-version}</version>
-							<classifier>indigo</classifier>
-						</artifact>
-					</target>
-					<environments>
-						<environment>
-							<os>${build.os}</os>
-							<ws>${build.ws}</ws>
-							<arch>${build.arch}</arch>
-						</environment>
-					</environments>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.3</version>
-				<executions>
-					<execution>
-						<id>attach-artifacts</id>
-						<phase>package</phase>
-						<goals>
-							<goal>attach-artifact</goal>
-						</goals>
-						<configuration>
-							<artifacts>
-								<artifact>
-									<file>juno.target</file>
-									<type>target</type>
-									<classifier>juno</classifier>
-								</artifact>
-								<artifact>
-									<file>indigo.target</file>
-									<type>target</type>
-									<classifier>indigo</classifier>
-								</artifact>
-							</artifacts>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
- -->
+			<!-- <plugin> <groupId>org.eclipse.tycho</groupId> <artifactId>tycho-p2-director-plugin</artifactId>
+				<version>${tycho-version}</version> <executions> <execution> <id>materialize-products</id>
+				<goals> <goal>materialize-products</goal> </goals> </execution> <execution>
+				<id>archive-products</id> <goals> <goal>archive-products</goal> </goals>
+				</execution> </executions> </plugin> <plugin> <groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId> <version>${tycho-version}</version>
+				<configuration> <target> <artifact> <groupId>com.industrialtsi.mylyn</groupId>
+				<artifactId>target-definition</artifactId> <version>${industrial-version}</version>
+				<classifier>indigo</classifier> </artifact> </target> <environments> <environment>
+				<os>${build.os}</os> <ws>${build.ws}</ws> <arch>${build.arch}</arch> </environment>
+				</environments> </configuration> </plugin> <plugin> <groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId> <version>1.3</version>
+				<executions> <execution> <id>attach-artifacts</id> <phase>package</phase>
+				<goals> <goal>attach-artifact</goal> </goals> <configuration> <artifacts>
+				<artifact> <file>juno.target</file> <type>target</type> <classifier>juno</classifier>
+				</artifact> <artifact> <file>indigo.target</file> <type>target</type> <classifier>indigo</classifier>
+				</artifact> </artifacts> </configuration> </execution> </executions> </plugin> -->
 		</plugins>
 	</build>
-<!-- 
- 	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>2.6</version>
-			</plugin>
-		</plugins>
-	</reporting>
- -->
+	<!-- <reporting> <plugins> <plugin> <groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-checkstyle-plugin</artifactId> <version>2.6</version> </plugin>
+		</plugins> </reporting> -->
 
 	<scm>
 		<url>http://svn.codespot.com/a/eclipselabs.org/industrial-mylyn/trunk/</url>

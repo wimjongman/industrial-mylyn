@@ -11,12 +11,30 @@
   <groupId>com.industrialtsi.mylyn</groupId>
   <artifactId>com.industrialtsi.mylyn.tests</artifactId>
   <version>0.9.10</version>
-  <packaging>eclipse-plugin</packaging>
+  <packaging>eclipse-test-plugin</packaging>
   <dependencies>
   	<dependency>
   		<groupId>junit</groupId>
   		<artifactId>junit</artifactId>
   		<version>4.11</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.industrialtsi.mylyn</groupId>
+  		<artifactId>com.industrialtsi.mylyn.demo.derby</artifactId>
+  		<version>0.9.10</version>
+  		<type>eclipse-plugin</type>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.industrialtsi.mylyn</groupId>
+  		<artifactId>com.industrialtsi.mylyn.demo.jpa</artifactId>
+  		<version>0.9.10</version>
+  		<type>eclipse-plugin</type>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.industrialtsi.mylyn</groupId>
+  		<artifactId>com.industrialtsi.mylyn.demo.memory</artifactId>
+  		<version>0.9.10</version>
+  		<type>eclipse-plugin</type>
   	</dependency>
   </dependencies>
 </project>
