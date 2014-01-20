@@ -7,6 +7,7 @@
 	<version>0.9.10-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>com.industrialtsi.mylyn.maven</name>
+	<description>Maven Build project for Industrial SQL Connector</description>
 	<properties>
 		<tycho-version>0.19.0</tycho-version>
 		<tycho-extras.version>0.19.0</tycho-extras.version>
@@ -31,7 +32,30 @@
 			<url>http://download.eclipse.org/rt/eclipselink/updates/</url>
 		</repository>
 	</repositories>
-	<description>Maven Build project for Industrial SQL Connector</description>
+	<profiles>
+			<profile>
+			<id>macosx</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<properties>
+				<ui.test.vmargs>-Xmx512m -XX:MaxPermSize=256m -XstartOnFirstThread</ui.test.vmargs>
+			</properties>
+		</profile>
+		<profile>
+			<id>other-os</id>
+			<activation>
+				<os>
+					<family>!mac</family>
+				</os>
+			</activation>
+			<properties>
+				<ui.test.vmargs>-Xmx512m -XX:MaxPermSize=256m</ui.test.vmargs>
+			</properties>
+		</profile>
+	</profiles>
 	<modules>
 		<!-- <module>com.industrialtsi.mylyn.twitter</module> -->
 		<module>../com.industrialtsi.mylyn.demo.memory</module>
@@ -40,16 +64,12 @@
 		<module>../com.industrialtsi.mylyn.demo.derby.feature</module>
 		<module>../com.industrialtsi.mylyn.core</module>
 		<module>../com.industrialtsi.mylyn.ui</module>
-
-
-		
 		<module>../com.industrialtsi.mylyn.demo.jpa</module>
 		<module>../com.industrialtsi.mylyn.demo.jpa.feature</module>
-
 		<module>../org.apache.ibatis</module>
 		<module>../org.apache.ibatis.feature</module>
-
 		<module>../com.industrialtsi.mylyn.site</module>
+		<module>../com.industrialtsi.mylyn.tests</module>
 	</modules>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -62,25 +82,36 @@
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
-					<!-- <argLine>${sonar.jacoco.agent} ${ui.test.vmargs} -Djava.util.logging.config.file=logging.properties</argLine>
-						<appArgLine>-data /Volumes/TeraDisk2/workspace-TestEulumdatTools</appArgLine> -->					<!-- -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -->
+					<!-- <argLine>${sonar.jacoco.agent} ${ui.test.vmargs} -Djava.util.logging.config.file=logging.properties</argLine> -->
+					<!-- <appArgLine>-data /Volumes/TeraDisk2/workspace-TestEulumdatTools</appArgLine> -->
+					<!-- -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -->
+					<argLine>${ui.test.vmargs}</argLine>
 					<useUIHarness>true</useUIHarness>
 					<useUIThread>true</useUIThread>
 					<product>org.eclipse.platform.ide</product>
 					<application>org.eclipse.ui.ide.workbench</application>
 					<dependencies>
-						<dependency>org.eclipse.mylyn.tasks.ui</dependency>
 						<dependency>
-							<type>eclipse-feature</type>
-							<artifactId>com.industrialtsi.mylyn.demo.derby.feature</artifactId>
+							<type>eclipse-plugin</type>
+							<artifactId>com.industrialtsi.mylyn.demo.derby</artifactId>
 							<version>0.9.10</version>
 						</dependency>
 						<dependency>
-							<type>eclipse-feature</type>
-							<artifactId>com.industrialtsi.mylyn.demo.jpa.feature</artifactId>
+							<type>eclipse-plugin</type>
+							<artifactId>com.industrialtsi.mylyn.demo.memory</artifactId>
 							<version>0.9.10</version>
 						</dependency>
-					</dependencies>
+<!-- 						<dependency>
+							<type>eclipse-plugin</type>
+							<artifactId>com.industrialtsi.mylyn.demo.jpa</artifactId>
+							<version>0.9.10</version>
+						</dependency>
+						<dependency>
+							<type>eclipse-plugin</type>
+							<artifactId>org.eclipse.persistence.jpa.osgi</artifactId>
+							<version>2.4.2</version>
+						</dependency>
+ -->					</dependencies>
 					<includes>
 						<include>**/*Test.java</include>
 					</includes>
@@ -123,6 +154,13 @@
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
+					<dependencies>
+						<dependency>
+							<type>eclipse-plugin</type>
+							<artifactId>com.industrialtsi.mylyn.demo.derby</artifactId>
+							<version>0.9.10</version>
+						</dependency>
+					</dependencies>
 				</configuration>
 			</plugin>
 			<!-- <plugin> <groupId>org.eclipse.tycho</groupId> <artifactId>tycho-p2-director-plugin</artifactId>
@@ -132,7 +170,7 @@
 				</execution> </executions> </plugin> <plugin> <groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId> <version>${tycho-version}</version>
 				<configuration> <target> <artifact> <groupId>com.industrialtsi.mylyn</groupId>
-				<artifactId>target-definition</artifactId> <version>${industrial-version}</version>
+				<artifactId>target-definition</artifactId> <version>0.9.10</version>
 				<classifier>indigo</classifier> </artifact> </target> <environments> <environment>
 				<os>${build.os}</os> <ws>${build.ws}</ws> <arch>${build.arch}</arch> </environment>
 				</environments> </configuration> </plugin> <plugin> <groupId>org.codehaus.mojo</groupId>

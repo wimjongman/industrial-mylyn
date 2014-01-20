@@ -35,3 +35,4 @@ Export-Package: org.apache.derby.authentication,
  org.apache.derby.osgi;uses:="org.osgi.framework",
  com.industrialtsi.mylyn.core.persistence
 Import-Package: org.eclipse.mylyn.tasks.core
+Require-Bundle: org.apache.ibatis;bundle-version="2.3.0"

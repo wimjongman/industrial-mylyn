@@ -41,7 +41,7 @@
 			<arguments>
 				<dictionary>
 					<key>LaunchConfigHandle</key>
-					<value>&lt;project&gt;/.externalToolBuilders/com.atlassw.tools.eclipse.checkstyle.CheckstyleBuilder.launch</value>
+					<value>&lt;project&gt;/.externalToolBuilders/org.eclipse.pde.api.tools.apiAnalysisBuilder.launch</value>
 				</dictionary>
 			</arguments>
 		</buildCommand>
@@ -51,21 +51,17 @@
 			<arguments>
 				<dictionary>
 					<key>LaunchConfigHandle</key>
-					<value>&lt;project&gt;/.externalToolBuilders/org.eclipse.pde.api.tools.apiAnalysisBuilder.launch</value>
+					<value>&lt;project&gt;/.externalToolBuilders/InCode.inCodeBuilder.launch</value>
 				</dictionary>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>InCode.inCodeBuilder</name>
-			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.sonar.ide.eclipse.core.sonarNature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.api.tools.apiAnalysisNature</nature>
-		<nature>com.nwire.studio.tools.nwireNature</nature>
+		<nature>org.sonar.ide.eclipse.core.sonarNature</nature>
 		<nature>InCode.inCodeNature</nature>
 	</natures>
 </projectDescription>

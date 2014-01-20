@@ -1,40 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <artifactId>com.industrialtsi.mylyn.maven</artifactId>
-    <groupId>com.industrialtsi.mylyn</groupId>
-    <version>0.9.10-SNAPSHOT</version>
-    <relativePath>../com.industrialtsi.mylyn.maven</relativePath>
-  </parent>
-  <groupId>com.industrialtsi.mylyn</groupId>
-  <artifactId>com.industrialtsi.mylyn.tests</artifactId>
-  <version>0.9.10</version>
-  <packaging>eclipse-test-plugin</packaging>
-  <dependencies>
-  	<dependency>
-  		<groupId>junit</groupId>
-  		<artifactId>junit</artifactId>
-  		<version>4.11</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>com.industrialtsi.mylyn</groupId>
-  		<artifactId>com.industrialtsi.mylyn.demo.derby</artifactId>
-  		<version>0.9.10</version>
-  		<type>eclipse-plugin</type>
-  	</dependency>
-  	<dependency>
-  		<groupId>com.industrialtsi.mylyn</groupId>
-  		<artifactId>com.industrialtsi.mylyn.demo.jpa</artifactId>
-  		<version>0.9.10</version>
-  		<type>eclipse-plugin</type>
-  	</dependency>
-  	<dependency>
-  		<groupId>com.industrialtsi.mylyn</groupId>
-  		<artifactId>com.industrialtsi.mylyn.demo.memory</artifactId>
-  		<version>0.9.10</version>
-  		<type>eclipse-plugin</type>
-  	</dependency>
-  </dependencies>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>com.industrialtsi.mylyn.maven</artifactId>
+		<groupId>com.industrialtsi.mylyn</groupId>
+		<version>0.9.10-SNAPSHOT</version>
+		<relativePath>../com.industrialtsi.mylyn.maven</relativePath>
+	</parent>
+	<groupId>com.industrialtsi.mylyn</groupId>
+	<artifactId>com.industrialtsi.mylyn.tests</artifactId>
+	<version>0.9.10</version>
+	<packaging>eclipse-test-plugin</packaging>
 </project>

@@ -41,7 +41,7 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.api.tools.apiAnalysisNature</nature>
 		<nature>edu.umd.cs.findbugs.plugin.eclipse.findbugsNature</nature>
-		<nature>com.nwire.studio.tools.nwireNature</nature>
+		<nature>org.sonar.ide.eclipse.core.sonarNature</nature>
 		<nature>InCode.inCodeNature</nature>
 	</natures>
 </projectDescription>
