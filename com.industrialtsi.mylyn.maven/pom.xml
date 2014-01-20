@@ -82,10 +82,7 @@
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
-					<!-- <argLine>${sonar.jacoco.agent} ${ui.test.vmargs} -Djava.util.logging.config.file=logging.properties</argLine> -->
-					<!-- <appArgLine>-data /Volumes/TeraDisk2/workspace-TestEulumdatTools</appArgLine> -->
-					<!-- -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -->
-					<argLine>${ui.test.vmargs}</argLine>
+					<argLine>${ui.test.vmargs} ${tycho.testArgLine}</argLine>
 					<useUIHarness>true</useUIHarness>
 					<useUIThread>true</useUIThread>
 					<product>org.eclipse.platform.ide</product>
@@ -171,6 +168,65 @@
 					</dependencies>
 				</configuration>
 			</plugin>
+	<plugin>
+		<groupId>org.jacoco</groupId>
+		<artifactId>jacoco-maven-plugin</artifactId>
+		<version>0.6.4.201312101107</version>
+		<executions>
+			<execution>
+				<id>prepare-integration-tests</id>
+				<phase>pre-integration-test</phase>
+				<goals>
+					<goal>prepare-agent</goal>
+				</goals>
+						<configuration>
+							<include>com.fold1.*</include>
+							<include>org.junit.*</include>
+							<!-- Where to put jacoco coverage report -->
+							<destFile>${sonar.jacoco.reportPath}</destFile>
+							<append>true</append>
+						</configuration>
+			</execution>
+			<execution>
+				<id>post-integration-tests</id>
+				<phase>post-integration-test</phase>
+				<goals>
+					<goal>report</goal>
+				</goals>
+				<configuration>
+					<dataFile>${sonar.jacoco.reportPath}</dataFile>
+				</configuration>
+			</execution>
+			<execution>
+				<id>check</id>
+				<goals>
+					<goal>check</goal>
+				</goals>
+				<configuration>
+					<dataFile>${sonar.jacoco.reportPath}</dataFile>
+					<rules>
+						<rule>
+							<element>PACKAGE</element>
+							<includes>
+								<include>com.fold1.*</include>
+							</includes>
+							<element>CLASS</element>
+							<excludes>
+								<exclude>*Test</exclude>
+							</excludes>
+							<limits>
+								<limit>
+									<counter>LINE</counter>
+									<value>COVEREDRATIO</value>
+									<minimum>0</minimum>
+								</limit>
+							</limits>
+						</rule>
+					</rules>
+				</configuration>
+			</execution>
+		</executions>
+	</plugin>
 			<!-- <plugin> <groupId>org.eclipse.tycho</groupId> <artifactId>tycho-p2-director-plugin</artifactId>
 				<version>${tycho-version}</version> <executions> <execution> <id>materialize-products</id>
 				<goals> <goal>materialize-products</goal> </goals> </execution> <execution>
