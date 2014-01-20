@@ -181,7 +181,7 @@
 					<goal>prepare-agent</goal>
 				</goals>
 						<configuration>
-							<include>com.fold1.*</include>
+							<include>com.industrialtsi.*</include>
 							<include>org.junit.*</include>
 							<!-- Where to put jacoco coverage report -->
 							<destFile>${sonar.jacoco.reportPath}</destFile>
@@ -209,7 +209,7 @@
 						<rule>
 							<element>PACKAGE</element>
 							<includes>
-								<include>com.fold1.*</include>
+								<include>com.industrialtsi.*</include>
 							</includes>
 							<element>CLASS</element>
 							<excludes>
