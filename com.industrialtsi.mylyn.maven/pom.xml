@@ -14,7 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<industrial-version>0.9.10</industrial-version>
-		<sonar.jacoco.reportPath>${project.build.directory}/../com.industrialtsi.mylyn.tests/target/jacoco.exec</sonar.jacoco.reportPath>
+		<sonar.jacoco.reportPath>${project.build.directory}/../../com.industrialtsi.mylyn.tests/target/jacoco.exec</sonar.jacoco.reportPath>
 		</properties>
 	<repositories>
 		<repository>
