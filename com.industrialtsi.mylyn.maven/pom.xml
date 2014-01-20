@@ -115,6 +115,14 @@
 					<includes>
 						<include>**/*Test.java</include>
 					</includes>
+					<excludes>
+						<exclude>**/IbatisPersistorTest.*</exclude>
+						<exclude>**/PersistorsManagerTest.*</exclude>
+						<exclude>**/DemoDerbyTest.*</exclude>
+						<exclude>**/DerbyIbatisPersistorTest.*</exclude>
+						<exclude>**/IbatisCorePluginTest.*</exclude>
+						<exclude>**/TaskCreationTest.*</exclude>
+					</excludes>
 					<!-- Kill test JVM if tests take more than 10 minutes (600 seconds)
 						to finish -->
 					<forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
