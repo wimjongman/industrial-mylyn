@@ -151,7 +151,7 @@
         </isNotNull>
         <isNotNull property="summary">
             bug_summary = #summary#,
-        </isNotNull>Empty>
+        </isNotNull>
         <isNotNull property="priority">
             bug_priority = #priority#,
         </isNotNull>
@@ -171,10 +171,10 @@
             bug_scheduled = #scheduledForDate#,
         </isNotNull>
         <isNotNull property="completionDate">
-        bug_closed = #completionDate#,
+            bug_closed = #completionDate#,
         </isNotNull>
         <isNotNull property="dueDate">
-        bug_due = #dueDate#,
+            bug_due = #dueDate#,
         </isNotNull>
         bug_time_estimated = 60 * #estimatedTimeHours#
         WHERE bug_ID=#taskId#

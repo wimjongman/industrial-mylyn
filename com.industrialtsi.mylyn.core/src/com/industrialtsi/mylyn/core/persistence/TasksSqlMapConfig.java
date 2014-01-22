@@ -40,11 +40,11 @@ import com.industrialtsi.mylyn.core.internal.CoreLogger;
  * TasksSqlMapConfig -- read in the configuration and the database parameters
  * for SqlMaps for use with the <code>com.industrialtsi.mylyn.core</code>
  * package
- * 
+ *
  * @author Maarten Meijer
- * 
+ *
  * @hidden
- * 
+ *
  */
 public class TasksSqlMapConfig {
 
@@ -79,7 +79,7 @@ public class TasksSqlMapConfig {
 	/**
 	 * @return SqlMap as used buy the various beans
 	 * @throws CoreException
-	 * 
+	 *
 	 *             TODO issue 15 maybe should be synchronised
 	 */
 	public static synchronized SqlMapClient getSqlMapInstance(
@@ -226,7 +226,7 @@ public class TasksSqlMapConfig {
 
 	/**
 	 * Forget the sqlmaps cached by ibatis.
-	 * 
+	 *
 	 * @param repository
 	 * @throws CoreException
 	 */
@@ -239,7 +239,7 @@ public class TasksSqlMapConfig {
 
 	/**
 	 * Worker method doing the work.
-	 * 
+	 *
 	 * @param repositoryKey
 	 * @throws CoreException
 	 */
@@ -263,7 +263,7 @@ public class TasksSqlMapConfig {
 
 	/**
 	 * Forget all maps cached by Ibatis.
-	 * 
+	 *
 	 * @throws CoreException
 	 */
 	public static void forgetMaps() throws CoreException {

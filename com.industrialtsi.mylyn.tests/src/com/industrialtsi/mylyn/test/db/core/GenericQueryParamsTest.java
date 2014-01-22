@@ -14,6 +14,8 @@ import java.util.Date;
 
 import junit.framework.TestCase;
 
+import org.junit.Test;
+
 import com.industrialtsi.mylyn.core.dto.IndustrialQueryParams;
 
 /**
@@ -28,15 +30,12 @@ public class GenericQueryParamsTest extends TestCase {
 	private static final String OWNER_WIM_MAARTEN = "owner=WIM|MAARTEN";
 
 	private static final String SUMMARY_LONG = "summary=special";
-	
-	private static final Date NOW = new Date();
-	
-	private static final String CREATED_TODAY = "creationBefore=" + Long.toString(NOW.getTime());
-	
-	
-	
-	
 
+	private static final Date NOW = new Date();
+
+	private static final String CREATED_TODAY = "creationBefore=" + Long.toString(NOW.getTime());
+
+	@Test
 	public void testAsUrlOwner() {
 		IndustrialQueryParams test = new IndustrialQueryParams(OWNER_WIM_MAARTEN);
 
@@ -47,6 +46,7 @@ public class GenericQueryParamsTest extends TestCase {
 
 	}
 
+	@Test
 	public void testAsUrlProduct() {
 		IndustrialQueryParams test = new IndustrialQueryParams(PRODUCT_IBATIS_MYLYN);
 
@@ -57,6 +57,7 @@ public class GenericQueryParamsTest extends TestCase {
 
 	}
 
+	@Test
 	public void testAsUrlPriority() {
 
 		IndustrialQueryParams test = new IndustrialQueryParams(PRIORITY_P1_P2_P3);
@@ -69,6 +70,7 @@ public class GenericQueryParamsTest extends TestCase {
 
 	}
 
+	@Test
 	public void testAsUrlSummary() {
 
 		IndustrialQueryParams test = new IndustrialQueryParams(SUMMARY_LONG);
@@ -79,7 +81,8 @@ public class GenericQueryParamsTest extends TestCase {
 
 	}
 
-	
+
+	@Test
 	public void testAsUrlOwnerPriority() {
 
 		IndustrialQueryParams test = new IndustrialQueryParams(OWNER_WIM_MAARTEN + "&" + PRIORITY_P1_P2_P3);
@@ -95,6 +98,7 @@ public class GenericQueryParamsTest extends TestCase {
 
 	}
 
+	@Test
 	public void testAsUrlOwnerProductPriority() {
 
 		IndustrialQueryParams test = new IndustrialQueryParams(OWNER_WIM_MAARTEN + "&" + PRODUCT_IBATIS_MYLYN + "&"
@@ -113,7 +117,8 @@ public class GenericQueryParamsTest extends TestCase {
 		assertEquals("reverse", OWNER_WIM_MAARTEN + "&" + PRODUCT_IBATIS_MYLYN + "&" + PRIORITY_P1_P2_P3, test.asUrl());
 
 	}
-	
+
+	@Test
 	public void testAsUrlCreationDate() {
 
 		IndustrialQueryParams test = new IndustrialQueryParams(CREATED_TODAY);

@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- * Maarten Meijer - initial API and implementation   
+ * Maarten Meijer - initial API and implementation
  */
 package com.industrialtsi.mylyn.core.config;
 
@@ -19,21 +19,21 @@ import com.industrialtsi.mylyn.core.persistence.IPersistor;
 
 public class PersistorConfig {
 	private String id;
-	
+
 	private String name;
-	
+
 	private String persistorFQCN;
-	
+
 	private String jdbcUrlTemplate;
 
 	private String jdbcUrlRegularExpression;
 
 	private IPersistor persistor = null;
-	
-	private HashMap<String, String> attributes;
-	
-	private HashMap<String, IbatisConfig> ibatisConfigs;
-	
+
+	private final HashMap<String, String> attributes;
+
+	private final HashMap<String, IbatisConfig> ibatisConfigs;
+
 	public PersistorConfig() {
 		super();
 		attributes = new HashMap<String, String>();
@@ -83,9 +83,7 @@ public class PersistorConfig {
 		this.persistorFQCN = persistorClassName;
 	}
 
-	
-	
-	
+
 	/**
 	 * @return the jdbcUrlTemplate
 	 */
@@ -122,8 +120,8 @@ public class PersistorConfig {
 	}
 
 	/**
-	 * Set the persistor.
-	 * TODO replace with lazy initialization in {@link #getPersistor()}.
+	 * Set the persistor. TODO replace with lazy initialization in
+	 * {@link #getPersistor()}.
 	 * 
 	 * @param persistor
 	 */
@@ -135,7 +133,7 @@ public class PersistorConfig {
 		if(!attributes.containsKey(key))
 			attributes.put(key, value);
 	}
-	
+
 	public Map<String, String> getAttributes() {
 		return Collections.unmodifiableMap(attributes);
 	}
@@ -148,7 +146,7 @@ public class PersistorConfig {
 	public Set<String> getIbatisConfigNames() {
 		return ibatisConfigs.keySet();
 	}
-	
+
 	public IbatisConfig getIbatisConfig(String name) {
 		return ibatisConfigs.get(name);
 	}

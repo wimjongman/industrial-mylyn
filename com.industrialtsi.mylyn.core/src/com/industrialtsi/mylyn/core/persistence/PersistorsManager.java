@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- * Industrial TSI - initial API and implementation   
+ * Industrial TSI - initial API and implementation
  *******************************************************************************/
 package com.industrialtsi.mylyn.core.persistence;
 
@@ -14,8 +14,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
@@ -49,7 +49,7 @@ import com.industrialtsi.mylyn.core.internal.RepositoryUtils;
 public class PersistorsManager {
 
 //	private static final String JDBC_DEFAULT_PATTERN = "^jdbc:[a-zA-Z0-9]+:[/:a-zA-Z0-9\\.]*(|:\\d+)*[/a-zA-Z0-9].*$";
-	
+
 	private static final String TRUE = "true"; //$NON-NLS-1$
 
 	private static final String CLASS = "class"; //$NON-NLS-1$
@@ -116,11 +116,12 @@ public class PersistorsManager {
 					CoreLogger.log(obsolete);
 					// fall back to connector.xml
 					IPersistor persistor = (IPersistor) elem
-							.createExecutableExtension(CLASS); 
+							.createExecutableExtension(CLASS);
 					if (persistor != null) {
 						persistorsMap
-								.put(elem.getAttribute(CLASS), persistor); 
-						CoreLogger.logInfo("Installed persistor : " + elem.getAttribute(CLASS)); //$NON-NLS-1$ 
+.put(elem.getAttribute(CLASS), persistor);
+						CoreLogger
+								.logInfo("Installed persistor : " + elem.getAttribute(CLASS)); //$NON-NLS-1$
 						// go ahead and parse the connector.xml file
 						ConnectorXmlConfig.getInstance()
 								.parseConnectorXmlFile();
@@ -195,7 +196,7 @@ public class PersistorsManager {
 			String value = child.getAttribute(key);
 			// add the repository attributes
 			if (value.equalsIgnoreCase("readonly")) { //$NON-NLS-1$
-				persistorConfig.addAttribute(key + "_readOnly", TRUE); //$NON-NLS-1$ 
+				persistorConfig.addAttribute(key + "_readOnly", TRUE); //$NON-NLS-1$
 			}
 		}
 	}
@@ -205,7 +206,7 @@ public class PersistorsManager {
 		for (String key: child.getAttributeNames()) {
 			String value = child.getAttribute(key);
 			// add the repository attributes
-			if (value.equals(TRUE)) { 
+			if (value.equals(TRUE)) {
 				persistorConfig.addAttribute(key, value);
 			}
 		}
@@ -258,7 +259,7 @@ public class PersistorsManager {
 	 * @return A collection of id's of <code>IPersistor</code> implementers as
 	 *         defined in the <code>connector.xml</code> file within the element
 	 *         <code>class</code>. The fully qualified path is used as id.
-	 *         
+	 * 
 	 * @deprecated is never used till version 0.9.4
 	 */
 	@Deprecated
@@ -297,7 +298,7 @@ public class PersistorsManager {
 			.getRepositoryPersistorPairs().get(repositoryName);
 			p = persistorsMap.get(pid);
 		}
-		
+
 		Assert
 				.isNotNull(
 						p,
@@ -328,7 +329,7 @@ public class PersistorsManager {
 			return RepositoryUtils.getRepositoryIDs();
 		}
 	}
-	
+
 	/**
 	 * @param persistorConfigName
 	 * @return the jdbc url example to enter in the url field
@@ -356,7 +357,7 @@ public class PersistorsManager {
 		String name = repository.getProperty(IndustrialCore.REPOSITORY_CONFIG_NAME);
 		assert null != name;
 		return getIbatisConfig(name, map);
-		
+
 	}
 
 	/**
@@ -408,5 +409,5 @@ public class PersistorsManager {
 					repository);
 		}
 	}
-	
+
 }

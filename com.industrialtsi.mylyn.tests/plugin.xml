@@ -32,7 +32,7 @@
                task.common.user.assigned="readwrite">
          </task-attributes>
          <ibatis-config
-               driver="com.industrialtsi.mylyn.tests.Ibatis-config1"
+               driver="com.industrialtsi.mylyn.tests.util.Ibatis-config1"
                maps="com.industrialtsi.mylyn.tests.ibatis-config1"
                name="name">
          </ibatis-config>

@@ -17,7 +17,7 @@ import java.util.Set;
 
 import com.industrialtsi.mylyn.core.persistence.IPersistor;
 import com.industrialtsi.mylyn.core.persistence.PersistorsManager;
-import com.industrialtsi.mylyn.test.db.IbatisTest;
+import com.industrialtsi.mylyn.test.db.AbstractIbatisTestCase;
 
 /**
  * <code>TestPersistorsManagerTest</code> : TODO describe.
@@ -25,7 +25,7 @@ import com.industrialtsi.mylyn.test.db.IbatisTest;
  * @author maarten
  * 
  */
-public class PersistorsManagerTest extends IbatisTest {
+public class PersistorsManagerTest extends AbstractIbatisTestCase {
 
 	/* @see junit.framework.TestCase#setUp() */
 	@Override

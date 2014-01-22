@@ -105,14 +105,16 @@
 					<includes>
 						<include>**/*Test.java</include>
 					</includes>
+<!--
 					<excludes>
-						<exclude>**/IbatisPersistorTest.*</exclude>
+ 						<exclude>**/IbatisPersistorTest.*</exclude>
 						<exclude>**/PersistorsManagerTest.*</exclude>
 						<exclude>**/DemoDerbyTest.*</exclude>
 						<exclude>**/DerbyIbatisPersistorTest.*</exclude>
 						<exclude>**/IbatisCorePluginTest.*</exclude>
 						<exclude>**/TaskCreationTest.*</exclude>
-					</excludes>
+ 					</excludes>
+ -->
 					<!-- Kill test JVM if tests take more than 10 minutes (600 seconds)
 						to finish -->
 					<forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
@@ -198,4 +200,13 @@
 		<url>http://dev.fold1.com:9090/</url>
 		<system>Hudson FOLD Systems</system>
 	</ciManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock</artifactId>
+			<version>1.5.1</version>
+			<type>pom</type>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>

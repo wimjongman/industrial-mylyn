@@ -19,9 +19,10 @@ import org.eclipse.mylyn.tasks.core.TaskRepository;
 import com.industrialtsi.mylyn.core.IndustrialCore;
 import com.industrialtsi.mylyn.core.IndustrialRepositoryConnector;
 import com.industrialtsi.mylyn.core.persistence.TasksSqlMapConfig;
+import com.industrialtsi.mylyn.tests.util.OsUtils;
 
 /**
- * <code>IbatisTest</code> is an abstract super class for Ibatis unit tests
+ * <code>AbstractIbatisTestCase</code> is an abstract super class for Ibatis unit tests
  * that sets up a number of constants from system properties. This allows easy
  * switching of test sets against local and remote issue databases. Parameters
  * set are:
@@ -64,24 +65,28 @@ import com.industrialtsi.mylyn.core.persistence.TasksSqlMapConfig;
  *
  * @author Maarten Meijer
  */
-public abstract class IbatisTest extends TestCase {
+public abstract class AbstractIbatisTestCase extends TestCase {
 
-	protected static final String IBATIS_REPOSITORY_URL = (null != System.getProperty("IBATIS_REPOSITORY_URL")) ? System
-			.getProperty("IBATIS_REPOSITORY_URL")
-			: "jdbc:derby:C:\\DerbyDatabases\\MyDB;create=true";
+	private static final String WINDOWS_DERBY_LOC = "jdbc:derby:C:\\DerbyDatabases\\MyDB;create=true";
+	private static final String MAC_DERBY_LOC = "jdbc:derby:/Users/maarten/tasksDB;create=true";
 
-	protected static final String IBATIS_CONFIGPATH = (null != System.getProperty("IBATIS_CONFIGPATH")) ? System
-			.getProperty("IBATIS_CONFIGPATH") : "";
+	private static final String DERBY_LOC = OsUtils.isWindows() ? WINDOWS_DERBY_LOC
+			: MAC_DERBY_LOC;
 
-	protected static final String IBATIS_INCLUDEDCONFIG = (null != System.getProperty("IBATIS_INCLUDEDCONFIG")) ? System
-			.getProperty("IBATIS_INCLUDEDCONFIG")
-			: "";
+	protected static final String IBATIS_REPOSITORY_URL = System.getProperty(
+			"IBATIS_REPOSITORY_URL", DERBY_LOC);
 
-	protected static final String PASSWORD = (null != System.getProperty("IBATIS_PASSWORD")) ? System
-			.getProperty("IBATIS_PASSWORD") : "secret";
+	protected static final String IBATIS_CONFIGPATH = System.getProperty(
+			"IBATIS_CONFIGPATH", "");
 
-	protected static final String USERNAME = (null != System.getProperty("IBATIS_USERNAME")) ? System
-			.getProperty("IBATIS_USERNAME") : "App";
+	protected static final String IBATIS_INCLUDEDCONFIG = System.getProperty(
+			"IBATIS_INCLUDEDCONFIG", "derby_local_demo");
+
+	protected static final String PASSWORD = System.getProperty(
+			"IBATIS_PASSWORD", "secret");
+
+	protected static final String USERNAME = System.getProperty(
+			"IBATIS_USERNAME", "mylyn");
 
 	protected IndustrialRepositoryConnector connector;
 
@@ -90,14 +95,14 @@ public abstract class IbatisTest extends TestCase {
 	/**
 	 *
 	 */
-	public IbatisTest() {
+	public AbstractIbatisTestCase() {
 		super();
 	}
 
 	/**
 	 * @param name
 	 */
-	public IbatisTest(String name) {
+	public AbstractIbatisTestCase(String name) {
 		super(name);
 	}
 
@@ -116,9 +121,13 @@ public abstract class IbatisTest extends TestCase {
 		repository.setProperty(IndustrialCore.REPOSITORY_CONFIG_NAME, repository.getRepositoryLabel());
 		// repository.setAuthenticationCredentials(USERNAME, PASSWORD);
 		assertNotNull("Repository Name is null", repository.getProperty(IndustrialCore.REPOSITORY_CONFIG_NAME));
-		
+
 		assertNotNull("IBATIS_CONFIGPATH not set", IBATIS_CONFIGPATH);
 		repository.setProperty(TasksSqlMapConfig.SQLMAP_PATH, IBATIS_CONFIGPATH);
+	}
+
+	protected void closeTestRepository() {
+		connector.stop();
 	}
 
 	/**

@@ -16,11 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
+import org.junit.Before;
+import org.junit.Test;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.industrialtsi.mylyn.core.IndustrialCore;
 import com.industrialtsi.mylyn.core.dto.IndustrialQueryParams;
-import com.industrialtsi.mylyn.test.db.IbatisTest;
+import com.industrialtsi.mylyn.test.db.AbstractIbatisTestCase;
 
 /**
  * run this with -DIBATIS_REPOSITORY_URL=jdbc:derby:/Users/maarten/Desktop/tasks/mylynDB
@@ -29,9 +31,9 @@ import com.industrialtsi.mylyn.test.db.IbatisTest;
  * @author maarten
  *
  */
-public class DemoDerbyTest extends IbatisTest {
+public class DemoDerbyTest extends AbstractIbatisTestCase {
 
-
+	@Before
 	@Override
 	protected void setUp() throws Exception {
 		// TODO Auto-generated method stub
@@ -42,6 +44,7 @@ public class DemoDerbyTest extends IbatisTest {
 
 
 	@SuppressWarnings("unchecked")
+	@Test
 	public void testRepositoryConfig() {
 
 		List<String> results = new ArrayList<String>();
@@ -58,22 +61,22 @@ public class DemoDerbyTest extends IbatisTest {
 		results = tasksMap.queryForList("Repository.legalOwners", null);
 		options.setOwner(results.toArray(new String[0]));
 
-		assertTrue("Owners in DB", results.isEmpty());
+			assertTrue("Owners in DB", !results.isEmpty());
 
 		results = tasksMap.queryForList("Repository.legalProducts", null);
 		options.setProduct(results.toArray(new String[0]));
 
-		assertTrue("Products in DB", results.isEmpty());
+			assertTrue("Products in DB", !results.isEmpty());
 
 		results = tasksMap.queryForList("Repository.legalIssueStatus", null);
 		options.setIssueStatus(results.toArray(new String[0]));
 
-		assertTrue("Issue Status in DB", results.isEmpty());
+			assertTrue("Issue Status in DB", !results.isEmpty());
 
 		results = tasksMap.queryForList("Repository.legalPriority", null);
 		options.setPriority(results.toArray(new String[0]));
 
-		assertTrue("Priorities in DB", results.isEmpty());
+			assertTrue("Priorities in DB", !results.isEmpty());
 
 		} catch (SQLException e) {
 			e.printStackTrace();

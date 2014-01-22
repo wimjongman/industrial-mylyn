@@ -12,7 +12,9 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.3.0,4.0.0)",
  org.eclipse.mylyn.commons.net;bundle-version="[3.0.0,4.0.0)",
  org.eclipse.mylyn.tasks.ui;bundle-version="[3.3.0,4.0.0)",
  org.eclipse.ant.core;bundle-version="[3.2.0,3.7.0)",
- org.junit;bundle-version="4.11.0"
+ org.junit;bundle-version="4.11.0",
+ org.easymock;bundle-version="2.4.0",
+ org.eclipse.swt
 Export-Package: com.industrialtsi.mylyn.core.persistence,
  com.industrialtsi.mylyn.test.db,
  com.industrialtsi.mylyn.test.db.core;uses:="org.eclipse.mylyn.tasks.core,junit.framework,com.industrialtsi.mylyn.core",
@@ -24,3 +26,4 @@ Export-Package: com.industrialtsi.mylyn.core.persistence,
  org.dbunit.dataset.xml
 Bundle-ClassPath: lib/dbunit-2.4.2.jar,
  .
+Bundle-ActivationPolicy: lazy
